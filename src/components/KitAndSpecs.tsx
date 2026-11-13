@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import { media, kitItems, technicalSpecs } from "@/data/product";
+import { media, kitItems, technicalSpecs, companyLinks } from "@/data/product";
+import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./KitAndSpecs.module.css";
 
 export default function KitAndSpecs() {
@@ -60,6 +63,17 @@ export default function KitAndSpecs() {
                   </div>
                 ))}
               </dl>
+            </div>
+
+            {/* Botão de Compra Direto ao Checkout */}
+            <div className={styles.kitCtaWrapper}>
+              <a
+                href={companyLinks.checkout}
+                onClick={() => trackInitiateCheckout()}
+                className={styles.kitBuyButton}
+              >
+                QUERO MEU KIT COMPLETO POR R$ 89,90 →
+              </a>
             </div>
           </div>
         </div>

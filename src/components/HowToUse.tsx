@@ -1,4 +1,7 @@
-import { howToUseSteps } from "@/data/product";
+"use client";
+
+import { howToUseSteps, companyLinks } from "@/data/product";
+import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./HowToUse.module.css";
 
 export default function HowToUse() {
@@ -29,8 +32,17 @@ export default function HowToUse() {
             <strong>Dica de Especialista:</strong> Para um acabamento profissional no contorno da sobrancelha, estique levemente a pele com dois dedos e passe a ponta com toques circulares pequenos e constantes.
           </div>
         </div>
+
+        <div className={styles.ctaWrapper}>
+          <a
+            href={companyLinks.checkout}
+            onClick={() => trackInitiateCheckout()}
+            className={styles.howToUseButton}
+          >
+            QUERO RETOQUES RÁPIDOS SEM DOR POR R$ 89,90 →
+          </a>
+        </div>
       </div>
     </section>
   );
 }
-

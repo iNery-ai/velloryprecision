@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import { benefitsList, media } from "@/data/product";
+import { benefitsList, media, companyLinks } from "@/data/product";
+import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./BenefitsFeatures.module.css";
 
 export default function BenefitsFeatures() {
@@ -39,6 +42,17 @@ export default function BenefitsFeatures() {
               <p className={styles.cardDesc}>{item.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Botão de Compra Direto ao Checkout */}
+        <div className={styles.ctaWrapper}>
+          <a
+            href={companyLinks.checkout}
+            onClick={() => trackInitiateCheckout()}
+            className={styles.buyButton}
+          >
+            QUERO ESSA TECNOLOGIA POR R$ 89,90 →
+          </a>
         </div>
       </div>
     </section>

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { media, companyLinks } from "@/data/product";
+import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -36,7 +39,11 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <a href="#produto" className={styles.ctaButton}>
+          <a
+            href={companyLinks.checkout}
+            onClick={() => trackInitiateCheckout()}
+            className={styles.ctaButton}
+          >
             Comprar Agora
           </a>
         </div>
@@ -44,4 +51,3 @@ export default function Header() {
     </header>
   );
 }
-

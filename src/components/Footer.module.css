@@ -13,12 +13,24 @@
   border-bottom: 1px solid rgba(232, 217, 205, 0.15);
 }
 
+/* Container elegante para a logo ser 100% visível sobre o fundo escuro */
+.logoWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-ivory);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(232, 217, 205, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.25rem;
+}
+
 .footerLogo {
-  height: 28px;
+  height: 30px;
   width: auto;
   object-fit: contain;
-  margin-bottom: 1rem;
-  filter: brightness(0) invert(1) sepia(0.2);
+  display: block;
 }
 
 .brandBio {
@@ -55,6 +67,18 @@
 .linkList a:hover {
   opacity: 1;
   color: #fff;
+}
+
+.buyLinkHighlight {
+  color: #fff !important;
+  font-weight: 700;
+  opacity: 1 !important;
+  color: var(--color-rose-soft) !important;
+}
+
+.buyLinkHighlight:hover {
+  color: #fff !important;
+  text-decoration: underline;
 }
 
 .badgesRow {
@@ -128,8 +152,7 @@
 @media (max-width: 900px) {
   .footer {
     padding-top: 3rem;
-    /* Reserva espaço seguro para não sobrepor o botão flutuante de compra */
-    padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 12px));
   }
 
   .topRow {

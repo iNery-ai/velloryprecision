@@ -10,107 +10,165 @@
     left: 0;
     right: 0;
     z-index: 999;
-    background-color: rgba(250, 246, 240, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(253, 251, 247, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid var(--color-beige);
-    box-shadow: 0 -4px 20px rgba(45, 33, 29, 0.12);
+    box-shadow: 0 -8px 25px rgba(45, 33, 29, 0.15);
     padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
     animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Organização Limpa da div .inner */
   .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.625rem 16px;
-    gap: 0.875rem;
+    gap: 12px;
+    padding: 10px 16px;
     max-width: var(--container-max);
     margin: 0 auto;
   }
 
-  .productInfo {
+  /* Coluna de Preço Limpa e Legível */
+  .priceColumn {
     display: flex;
     flex-direction: column;
-    min-width: 0;
-    gap: 1px;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 125px;
   }
 
-  .topMeta {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .bfMiniBadge {
-    font-size: 0.625rem;
-    font-weight: 800;
-    color: #fff;
-    background-color: #D32F2F;
-    padding: 1px 5px;
-    border-radius: var(--radius-pill);
-    letter-spacing: 0.03em;
-  }
-
-  .productName {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: var(--color-espresso-muted);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .priceRow {
+  .mainPriceRow {
     display: flex;
     align-items: baseline;
     gap: 4px;
-    flex-wrap: wrap;
+    line-height: 1.1;
   }
 
-  .currentPrice {
-    font-size: 1.125rem;
+  .priceValue {
+    font-size: 1.3125rem;
     font-weight: 800;
     color: var(--color-espresso);
+    letter-spacing: -0.02em;
   }
 
-  .pixTag {
-    font-size: 0.625rem;
-    font-weight: 700;
-    color: var(--color-green-success);
-    background-color: rgba(46, 125, 50, 0.1);
-    padding: 1px 5px;
-    border-radius: var(--radius-pill);
-  }
-
-  .freeShipping {
-    font-size: 0.625rem;
-    color: var(--color-green-success);
-    font-weight: 700;
-  }
-
-  .ctaButton {
-    background-color: var(--color-espresso);
-    color: var(--color-ivory);
-    font-size: 0.8125rem;
+  .pixBadge {
+    font-size: 0.6875rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
+    color: var(--color-green-success);
+    background-color: rgba(46, 125, 50, 0.12);
+    padding: 1px 6px;
+    border-radius: var(--radius-pill);
     text-transform: uppercase;
-    padding: 0.75rem 1.25rem;
-    min-height: 48px; /* Altura ergonômica recomendada para o polegar */
+  }
+
+  .subPriceRow {
+    font-size: 0.6875rem;
+    color: var(--color-espresso-muted);
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-sm);
+    gap: 3px;
+    margin-top: 2px;
     white-space: nowrap;
-    flex-shrink: 0;
-    box-shadow: 0 4px 14px rgba(45, 33, 29, 0.25);
-    transition: all var(--transition-fast);
+  }
+
+  .freeShippingBadge {
+    color: var(--color-green-success);
+    font-weight: 700;
+  }
+
+  /* ================================================================== */
+  /*  BOTÃO DE COMPRA COM MÁXIMO DESTAQUE VISUAL (ALTA CONVERSÃO)       */
+  /* ================================================================== */
+  .ctaButton {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #388E3C 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 14px;
+    min-height: 52px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 18px rgba(46, 125, 50, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .ctaButton:hover {
+    background: linear-gradient(135deg, #144618 0%, #256628 100%);
+    box-shadow: 0 6px 22px rgba(46, 125, 50, 0.55);
+    transform: translateY(-1px);
   }
 
   .ctaButton:active {
     transform: scale(0.97);
-    background-color: var(--color-espresso-light);
+  }
+
+  .ctaMainText {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #FFFFFF;
+    line-height: 1.1;
+  }
+
+  .ctaArrow {
+    display: none; /* Mantido clean sem excesso */
+  }
+
+  .ctaSubText {
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 380px) {
+    .inner {
+      padding: 8px 10px;
+      gap: 8px;
+    }
+
+    .priceColumn {
+      min-width: 105px;
+    }
+
+    .priceValue {
+      font-size: 1.125rem;
+    }
+
+    .pixBadge {
+      font-size: 0.625rem;
+      padding: 1px 4px;
+    }
+
+    .subPriceRow {
+      font-size: 0.625rem;
+    }
+
+    .ctaButton {
+      padding: 8px 10px;
+      min-height: 48px;
+    }
+
+    .ctaMainText {
+      font-size: 0.8125rem;
+    }
+
+    .ctaSubText {
+      font-size: 0.5625rem;
+    }
   }
 }
 

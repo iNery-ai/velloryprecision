@@ -34,30 +34,34 @@ export default function StickyMobileBar() {
   }
 
   return (
-    <div className={styles.bar}>
+    <aside className={styles.bar} aria-label="Barra de compra rápida">
       <div className={styles.inner}>
-        <div className={styles.productInfo}>
-          <div className={styles.topMeta}>
-            <span className={styles.bfMiniBadge}>⚡ 13% OFF</span>
-            <span className={styles.productName}>{product.shortName}</span>
-          </div>
-          <div className={styles.priceRow}>
-            <span className={styles.currentPrice}>
+        {/* Bloco de Preço Otimizado e Limpo */}
+        <div className={styles.priceColumn}>
+          <div className={styles.mainPriceRow}>
+            <span className={styles.priceValue}>
               {formatBRL(product.pricing.pixPrice)}
             </span>
-            <span className={styles.pixTag}>no PIX</span>
-            <span className={styles.freeShipping}>• Frete Grátis</span>
+            <span className={styles.pixBadge}>no PIX</span>
+          </div>
+          <div className={styles.subPriceRow}>
+            <span>ou 12x {formatBRL(product.pricing.installments.value)}</span>
+            <span className={styles.freeShippingBadge}>• Frete Grátis</span>
           </div>
         </div>
 
+        {/* Botão de Compra com Máximo Destaque Visual */}
         <a
           href={companyLinks.checkout}
           onClick={() => trackInitiateCheckout()}
           className={styles.ctaButton}
+          aria-label="Comprar Caneta Depiladora com Frete Grátis"
         >
-          COMPRAR AGORA
+          <span className={styles.ctaMainText}>COMPRAR AGORA</span>
+          <span className={styles.ctaArrow}>→</span>
+          <span className={styles.ctaSubText}>Últimas Unidades • 13% OFF</span>
         </a>
       </div>
-    </div>
+    </aside>
   );
 }

@@ -1,3 +1,7 @@
+"use client";
+
+import { companyLinks } from "@/data/product";
+import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./GuaranteeSection.module.css";
 
 export default function GuaranteeSection() {
@@ -24,6 +28,16 @@ export default function GuaranteeSection() {
             <p className={styles.desc}>
               Basta enviar um e-mail para nossa equipe de atendimento. O risco é todo nosso!
             </p>
+
+            <div className={styles.ctaWrapper}>
+              <a
+                href={companyLinks.checkout}
+                onClick={() => trackInitiateCheckout()}
+                className={styles.guaranteeButton}
+              >
+                EXPERIMENTAR POR 7 DIAS COM FRETE GRÁTIS →
+              </a>
+            </div>
           </div>
         </div>
       </div>

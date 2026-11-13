@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { media, companyLinks } from "@/data/product";
+import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -8,13 +11,15 @@ export default function Footer() {
       <div className="container">
         <div className={styles.topRow}>
           <div className={styles.brandCol}>
-            <Image
-              src={media.logo.src}
-              alt={media.logo.alt}
-              width={180}
-              height={45}
-              className={styles.footerLogo}
-            />
+            <div className={styles.logoWrapper}>
+              <Image
+                src={media.logo.src}
+                alt={media.logo.alt}
+                width={180}
+                height={45}
+                className={styles.footerLogo}
+              />
+            </div>
             <p className={styles.brandBio}>
               Especialistas em produtos de precisão e beleza. Levamos conforto, praticidade e tecnologia indolor para o autocuidado diário de mulheres em todo o Brasil.
             </p>
@@ -23,7 +28,15 @@ export default function Footer() {
           <div className={styles.linksCol}>
             <h4 className={styles.colTitle}>Navegação Rápida</h4>
             <ul className={styles.linkList}>
-              <li><a href="#produto">Comprar Caneta Depiladora</a></li>
+              <li>
+                <a
+                  href={companyLinks.checkout}
+                  onClick={() => trackInitiateCheckout()}
+                  className={styles.buyLinkHighlight}
+                >
+                  ⚡ Comprar Caneta Depiladora (Checkout)
+                </a>
+              </li>
               <li><a href="#como-funciona">Como Usar</a></li>
               <li><a href="#beneficios">Tecnologia & Benefícios</a></li>
               <li><a href="#kit">O que vem no kit</a></li>

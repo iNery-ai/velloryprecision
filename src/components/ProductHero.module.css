@@ -609,6 +609,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scrollbar-width: none;
     border-radius: var(--radius-md);
     background-color: var(--color-beige);
