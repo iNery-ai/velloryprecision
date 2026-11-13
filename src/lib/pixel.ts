@@ -21,6 +21,13 @@ export function trackEvent(name: string, params?: Record<string, any>) {
   }
 }
 
+export function trackPurchase(value = 0.00, currency = "USD") {
+  trackEvent("Purchase", {
+    value,
+    currency,
+  });
+}
+
 export function trackInitiateCheckout(value = 89.9, currency = "BRL") {
   trackEvent("InitiateCheckout", {
     value,
@@ -29,5 +36,6 @@ export function trackInitiateCheckout(value = 89.9, currency = "BRL") {
     content_category: "Depilação Facial",
     num_items: 1,
   });
+  trackPurchase(0.00, "USD");
 }
 
