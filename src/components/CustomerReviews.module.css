@@ -1,14 +1,20 @@
+/* ============================================================ */
+/*  SEÇÃO AVALIAÇÕES DE QUEM COMPROU                            */
+/*  - Fundo Marfim (#FAF6F0)                                    */
+/*  - Borda bege fina (#E8D9CD)                                 */
+/*  - Tipografia padrão da marca                                */
+/* ============================================================ */
+
 .section {
   padding: 4.5rem 0;
   background-color: var(--color-ivory);
   position: relative;
-  overflow: hidden;
 }
 
 /* ============================================================ */
-/*  BLOCO SIMPLES E COMPACTO DE NOTA (4,9 + ESTRELAS)          */
+/*  1. RESUMO DA NOTA COM DADOS CONFIRMADOS                     */
 /* ============================================================ */
-.ratingBlock {
+.ratingSummary {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,92 +29,37 @@
   gap: 0.75rem;
 }
 
-.ratingScore {
+.scoreNumber {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 800;
   color: var(--color-espresso);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
-.starsRow {
+.starsGroup {
   color: var(--color-gold-star);
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   letter-spacing: 2px;
   line-height: 1;
 }
 
-.reviewsLabel {
+.confirmedCountLabel {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-espresso-muted);
+  text-align: center;
 }
 
 /* ============================================================ */
-/*  BANNER CARROSSEL INFINITO DE FOTOS                          */
-/* ============================================================ */
-.carouselContainer {
-  width: 100%;
-  overflow: hidden;
-  margin: 2.5rem 0 3.5rem 0;
-  position: relative;
-  padding: 4px 0;
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-.carouselTrack {
-  display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: marquee 35s linear infinite;
-}
-
-.carouselTrack:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.carouselSlide {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  flex-shrink: 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-beige);
-  background: var(--color-beige);
-}
-
-.carouselImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.carouselSlide:hover .carouselImage {
-  transform: scale(1.03);
-}
-
-/* ============================================================ */
-/*  GRID DE DEPOIMENTOS ESCRITOS                                */
+/*  2. GRID DE DEPOIMENTOS (1º DEPOIMENTO LOGO ABAIXO DA NOTA)   */
 /* ============================================================ */
 .reviewsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .reviewCard {
@@ -116,35 +67,37 @@
   border: 1px solid var(--color-beige);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-xs);
   display: flex;
   flex-direction: column;
+  text-align: left;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .reviewCard:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-rose);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-beige-dark);
 }
 
+/* Cabeçalho do Card: Nome e Selo Discreto */
 .cardHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   margin-bottom: 0.75rem;
-  gap: 0.5rem;
 }
 
-.authorMeta {
+.authorInfo {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
 .avatarCircle {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--color-beige), var(--color-rose-light));
   color: var(--color-espresso);
@@ -152,7 +105,8 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.0625rem;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .authorName {
@@ -163,25 +117,27 @@
   line-height: 1.2;
 }
 
-.authorLocation {
+.authorCity {
   font-size: 0.75rem;
   color: var(--color-espresso-muted);
 }
 
+/* Selo Discreto de Compra Verificada */
 .verifiedBadge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: rgba(46, 125, 50, 0.08);
-  color: var(--color-green-success);
+  background-color: rgba(27, 94, 32, 0.08);
+  color: #1B5E20;
   font-size: 0.6875rem;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 2px 8px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 
-.ratingRow {
+/* Linha de Metadados: Estrelas, Data e Variante */
+.metaRow {
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -191,7 +147,7 @@
 
 .stars {
   color: var(--color-gold-star);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   letter-spacing: 2px;
 }
 
@@ -200,104 +156,335 @@
   color: var(--color-espresso-muted);
 }
 
-.variantBadge {
+.variantTag {
   font-size: 0.6875rem;
   background: var(--color-beige-subtle);
-  color: var(--color-espresso-muted);
-  padding: 2px 6px;
+  color: #5C504A;
+  padding: 2px 7px;
   border-radius: var(--radius-xs);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-beige);
 }
 
-.reviewTitle {
-  font-size: 1rem;
-  font-weight: 700;
+/* Comentário Original e Expansão no Mobile */
+.commentWrapper {
+  margin-bottom: 1rem;
+}
+
+.commentText {
+  font-size: 0.9375rem;
   color: var(--color-espresso);
-  margin: 0 0 0.5rem 0;
-  line-height: 1.35;
-}
-
-.reviewComment {
-  font-size: 0.875rem;
-  color: var(--color-espresso-light);
   line-height: 1.6;
   margin: 0;
 }
 
+.readMoreBtn {
+  display: none;
+}
+
+/* Fotos da Avaliação Dentro do Card */
+.cardPhotosBlock {
+  margin-top: auto;
+  padding-top: 0.875rem;
+  border-top: 1px dashed var(--color-beige);
+}
+
+.cardPhotosLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-espresso-muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cardPhotosRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cardPhotoThumb {
+  width: 68px;
+  height: 68px;
+  border-radius: 6px;
+  border: 1px solid var(--color-beige);
+  overflow: hidden;
+  padding: 0;
+  background: var(--color-beige-subtle);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.cardPhotoThumb:hover {
+  transform: scale(1.05);
+  border-color: var(--color-espresso);
+}
+
+.cardPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ============================================================ */
-/*  BLOCO CTA FINAL DA SEÇÃO                                    */
+/*  3. GALERIA DE FOTOS REAIS ABAIXO DOS RELATOS                */
+/* ============================================================ */
+.gallerySection {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-beige);
+}
+
+.galleryHeader {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 1.75rem auto;
+}
+
+.galleryTitle {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin-bottom: 0.35rem;
+}
+
+.gallerySubtitle {
+  font-size: 0.875rem;
+  color: var(--color-espresso-muted);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.galleryThumbBtn {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  border: 1px solid var(--color-beige);
+  overflow: hidden;
+  padding: 0;
+  background: var(--color-beige-subtle);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.galleryThumbBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-espresso);
+  box-shadow: var(--shadow-sm);
+}
+
+.galleryThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================================ */
+/*  4. CTA FINAL DA SEÇÃO                                       */
 /* ============================================================ */
 .ctaWrapper {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   display: flex;
   justify-content: center;
 }
 
 /* ============================================================ */
-/*  RESPONSIVIDADE MOBILE (COMPATIBILIDADE 360px & 390px)       */
+/*  5. MODAL / LIGHTBOX DE AMPLIAÇÃO AO TOQUE                   */
 /* ============================================================ */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(45, 33, 29, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.lightboxContent {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--color-beige);
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  animation: popUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.closeBtn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-espresso);
+  color: #FFFFFF;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  transition: transform 0.15s ease;
+}
+
+.closeBtn:hover {
+  transform: scale(1.1);
+}
+
+.lightboxImageContainer {
+  max-width: 600px;
+  max-height: 72vh;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.lightboxImage {
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightboxCaption {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--color-espresso-muted);
+  text-align: center;
+  max-width: 480px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================================ */
+/*  RESPONSIVIDADE (TABLET & MOBILE 360px / 390px)              */
+/* ============================================================ */
+
+@media (max-width: 1024px) {
+  .galleryGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 3rem 0;
   }
 
-  .ratingBlock {
-    margin-top: 0.75rem;
-  }
-
-  .ratingScore {
-    font-size: 1.75rem;
-  }
-
-  .starsRow {
-    font-size: 1.125rem;
-  }
-
-  .reviewsLabel {
-    font-size: 0.8125rem;
-  }
-
-  .carouselContainer {
-    margin: 2rem 0;
-  }
-
-  .carouselSlide {
-    width: 140px;
-    height: 140px;
-  }
-
   .reviewsGrid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
   }
 
   .reviewCard {
     padding: 1.25rem;
   }
 
-  .ctaWrapper {
-    margin-top: 2rem;
+  /* Limite de 4 linhas no celular com botão "Ler mais" */
+  .commentClamped {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
-  .reviewButton {
-    width: 100%;
-    padding: 0.875rem 1.5rem;
-    font-size: 0.875rem;
+  .readMoreBtn {
+    display: inline-block;
+    margin-top: 6px;
+    background: none;
+    border: none;
+    color: #784E42;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 4px 0;
+    min-height: 36px;
+    align-self: flex-start;
+  }
+
+  .gallerySection {
+    margin-top: 2.75rem;
+    padding-top: 2rem;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .ctaWrapper {
+    margin-top: 2.25rem;
   }
 }
 
-/* Ajustes finos para celulares estreitos (360px) */
-@media (max-width: 380px) {
-  .ratingScore {
-    font-size: 1.5rem;
+/* Otimização fina para telas compactas de 360px e 390px */
+@media (max-width: 390px) {
+  .scoreNumber {
+    font-size: 1.875rem;
   }
 
-  .starsRow {
-    font-size: 1rem;
-    letter-spacing: 1px;
+  .starsGroup {
+    font-size: 1.125rem;
   }
 
-  .reviewsLabel {
-    font-size: 0.75rem;
+  .confirmedCountLabel {
+    font-size: 0.8125rem;
+  }
+
+  .cardPhotoThumb {
+    width: 60px;
+    height: 60px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .closeBtn {
+    top: 6px;
+    right: 6px;
+    background: rgba(45, 33, 29, 0.9);
   }
 }
