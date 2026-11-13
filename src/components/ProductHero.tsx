@@ -2,17 +2,12 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { galleryImages, product, companyLinks, offerStack, objectionBusters } from "@/data/product";
+import { galleryImages, product, companyLinks } from "@/data/product";
 import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./ProductHero.module.css";
 
-function formatBRL(value: number) {
-  return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
-
 export default function ProductHero() {
   const [selectedIdx, setSelectedIdx] = useState(0);
-
   const mobileScrollRef = useRef<HTMLDivElement>(null);
 
   // Sincronização do swipe mobile com o índice selecionado
@@ -48,13 +43,6 @@ export default function ProductHero() {
 
   const currentImg = galleryImages[selectedIdx];
 
-  // Preços exatos solicitados
-  const originalPrice = product.pricing.original; // R$ 103,39
-  const pixPrice = product.pricing.pixPrice; // R$ 89,90
-  const installmentCount = product.pricing.installments.count; // 12
-  const installmentValue = product.pricing.installments.value; // R$ 9,33
-  const discountPercent = product.pricing.discountPercent; // 13% OFF
-
   return (
     <section id="produto" className={styles.section}>
       <div className={`container ${styles.grid}`}>
@@ -62,7 +50,7 @@ export default function ProductHero() {
         {/*  COLUNA 1: GALERIA DE FOTOS (ESQUERDA NO DESKTOP)            */}
         {/* ============================================================ */}
         <div className={styles.galleryColumn}>
-          {/* Foto Principal Desktop (Proporção 1:1 reservada contra CLS) */}
+          {/* Foto Principal Desktop */}
           <div className={styles.mainImageContainer}>
             <Image
               src={currentImg.src}
@@ -72,22 +60,18 @@ export default function ProductHero() {
               priority={selectedIdx === 0}
               className={styles.mainImage}
             />
-            <div className={styles.zoomHint}>
-              <span>Passe o mouse para ampliar</span>
-            </div>
             <div className={styles.badgeBlackFriday}>
-              <span className={styles.bfFire}>🔥</span>
-              <span>BLACK FRIDAY • {discountPercent}% OFF</span>
+              <span>BLACK FRIDAY · 13% OFF</span>
             </div>
           </div>
 
-          {/* Carrossel Deslizável Mobile (Swipe touch nativo) */}
+          {/* Carrossel Deslizável Mobile (Swipe touch nativo 1:1) */}
           <div
             ref={mobileScrollRef}
             className={styles.mobileStrip}
             onScroll={handleMobileScroll}
             role="region"
-            aria-label="Carrossel de fotos da caneta depiladora"
+            aria-label="Fotos da Caneta Depiladora Facial"
           >
             {galleryImages.map((img, idx) => (
               <div key={img.src} className={styles.mobileSlide}>
@@ -149,114 +133,49 @@ export default function ProductHero() {
         </div>
 
         {/* ============================================================ */}
-        {/*  COLUNA 2: PAINEL DE COMPRA & CONVERSÃO (DIREITA NO DESKTOP)  */}
+        {/*  COLUNA 2: PAINEL DE COMPRA & OFERTA (DIREITA NO DESKTOP)    */}
         {/* ============================================================ */}
         <div className={styles.buyPanel}>
-          {/* Tag de Campanha Black Friday */}
-          <div className={styles.campaignTagRow}>
-            <span className={styles.bfTag}>⚡ BLACK FRIDAY</span>
-            <span className={styles.bfTagSubtitle}>Oferta por tempo limitado</span>
+          {/* Linha de Topo: Selo Black Friday + Prova Social em linha única */}
+          <div className={styles.topMetaRow}>
+            <span className={styles.bfMiniTag}>BLACK FRIDAY</span>
+            <span className={styles.socialProofLine}>★ 4,9 · 1.482 avaliações verificadas</span>
           </div>
 
-          {/* Avaliações em Estrelas */}
-          <div className={styles.ratingBar}>
-            <div className={styles.stars} aria-label="Classificação 4.9 de 5 estrelas">
-              {"★".repeat(5)}
-            </div>
-            <span className={styles.ratingScore}>{product.rating}</span>
-            <span className={styles.ratingCount}>
-              ({product.reviewsCount} avaliações verificadas)
-            </span>
-            <span className={styles.verifiedBadge}>✓ Compradores Reais</span>
-          </div>
-
-          {/* Título Principal H1 */}
-          <h1 className={styles.title}>{product.headline}</h1>
+          {/* Título Principal */}
+          <h1 className={styles.title}>Caneta Depiladora Facial Vellory Precision</h1>
 
           {/* Subtítulo / Descrição */}
-          <p className={styles.description}>{product.subheadline}</p>
+          <p className={styles.description}>
+            Retoque os fios ao redor da sobrancelha com uma ponta compacta e LED integrado para enxergar melhor onde passar.
+          </p>
 
-          {/* Tags de Destaques Rápidos */}
-          <div className={styles.highlightsContainer}>
-            {product.highlights.map((h) => (
-              <span key={h} className={styles.highlightBadge}>
-                {h}
-              </span>
-            ))}
-          </div>
+          {/* Três Destaques Concisos */}
+          <p className={styles.featuresLine}>
+            Ponta compacta · LED integrado · Recarga via USB
+          </p>
 
-          {/* Barra de Urgência & Escassez Black Friday */}
-          <div className={styles.urgencyContainer}>
-            <div className={styles.urgencyHeader}>
-              <span className={styles.urgencyFlame}>🔥</span>
-              <span className={styles.urgencyTitle}>
-                <strong>Lote de Black Friday:</strong> {product.urgency.batchReservedPercent}% reservado hoje
-              </span>
-              <span className={styles.urgencyCountdown}>Restam poucas unidades</span>
-            </div>
-            <div className={styles.urgencyTrack}>
-              <div
-                className={styles.urgencyFill}
-                style={{ width: `${product.urgency.batchReservedPercent}%` }}
-              />
-            </div>
-          </div>
-
-          {/* Bloco de Preço: De 103,39 por 89,90 no PIX ou 12x de 9,33 */}
+          {/* Bloco de Preço: Primeiro Ponto de Atenção */}
           <div className={styles.priceContainer}>
             <div className={styles.priceHeader}>
-              <span className={styles.originalPrice}>De {formatBRL(originalPrice)}</span>
-              <span className={styles.discountBadgeTag}>{discountPercent}% OFF NO PIX</span>
+              <span className={styles.originalPrice}>De R$ 103,39</span>
+              <span className={styles.discountBadgeTag}>13% OFF no Pix</span>
             </div>
 
             <div className={styles.mainPriceRow}>
-              <span className={styles.pixLabel}>Por apenas</span>
-              <span className={styles.currentPrice}>{formatBRL(pixPrice)}</span>
-              <span className={styles.pixHighlight}>no PIX</span>
+              <span className={styles.currentPrice}>R$ 89,90</span>
+              <span className={styles.pixHighlight}>no Pix</span>
             </div>
 
             <div className={styles.cardInstallmentRow}>
-              <span className={styles.cardIcon}>💳</span>
-              <span className={styles.installmentText}>
-                ou <strong>{installmentCount}x</strong> de <strong>{formatBRL(installmentValue)}</strong> no cartão
-              </span>
-            </div>
-
-            <div className={styles.paymentMethodsNotice}>
-              <span>Pagamento exclusivo via <strong>PIX</strong> (aprovação imediata) ou <strong>Cartão de Crédito</strong></span>
+              <span>ou <strong>12x de R$ 9,33</strong> no cartão · <strong>R$ 111,96 no total</strong></span>
             </div>
           </div>
 
-          {/* Pacote de Valor Incluso (Value Stacking) */}
-          <div className={styles.valueStackCard}>
-            <div className={styles.valueStackHeader}>
-              <span className={styles.valueStackBadge}>🎁 PACOTE COMPLETO INCLUSO HOJE</span>
-              <span className={styles.valueStackTotal}>Valor acumulado: R$ 179,40</span>
-            </div>
-            <ul className={styles.valueStackList}>
-              {offerStack.map((item) => (
-                <li key={item.item} className={styles.valueStackItem}>
-                  <span className={styles.stackCheck}>✓</span>
-                  <span className={styles.stackName}>{item.item}</span>
-                  <span className={item.isBonus ? styles.bonusTag : styles.stackVal}>
-                    {item.isBonus ? "GRÁTIS HOJE" : item.originalValue}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Pequena informação discreta de cores sortidas (sem destaque) */}
-          <p className={styles.discreetColorNotice}>
-            * {product.variant.note} (Todas as opções possuem a mesma tecnologia de corte 360°, LED e bateria USB).
-          </p>
-
-          {/* Alerta de Estoque: "Em estoque, pronto para envio!" */}
-          <div className={styles.stockAlert}>
+          {/* Urgência Limpa e Direta */}
+          <div className={styles.stockNotice}>
             <span className={styles.stockPulse} />
-            <span className={styles.stockText}>
-              <strong>{product.stock.statusText}</strong> Restam poucas unidades no valor promocional de Black Friday.
-            </span>
+            <span className={styles.stockText}>Últimas unidades com Frete Grátis</span>
           </div>
 
           {/* Botão de Compra CTA Principal */}
@@ -266,21 +185,16 @@ export default function ProductHero() {
               href={companyLinks.checkout}
               onClick={() => trackInitiateCheckout()}
               className={styles.buyButton}
+              aria-label="Comprar Caneta Depiladora Facial Agora"
             >
-              <span>COMPRAR AGORA · R$ 89,90</span>
-              <span className={styles.subCta}>Frete Grátis para todo o Brasil • 7 Dias de Garantia</span>
+              COMPRAR AGORA
             </a>
           </div>
 
-          {/* Pílulas de Quebra de Objeções Imediatas */}
-          <div className={styles.objectionPills}>
-            {objectionBusters.map((b) => (
-              <span key={b.title} className={styles.objectionPill}>
-                <span className={styles.pillIcon}>{b.icon}</span>
-                <span className={styles.pillTitle}>{b.title}</span>
-              </span>
-            ))}
-          </div>
+          {/* Informação Discreta de Cores Sortidas */}
+          <p className={styles.discreetColorNotice}>
+            * {product.variant.note}
+          </p>
         </div>
       </div>
     </section>
