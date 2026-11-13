@@ -71,7 +71,7 @@ export default function ProductHero() {
             className={styles.mobileStrip}
             onScroll={handleMobileScroll}
             role="region"
-            aria-label="Fotos da Caneta Depiladora Facial"
+            aria-label="Fotos da Caneta Depiladora"
           >
             {galleryImages.map((img, idx) => (
               <div key={img.src} className={styles.mobileSlide}>
@@ -143,7 +143,7 @@ export default function ProductHero() {
           </div>
 
           {/* Título Principal */}
-          <h1 className={styles.title}>Caneta Depiladora Facial Vellory Precision</h1>
+          <h1 className={styles.title}>Caneta Depiladora</h1>
 
           {/* Subtítulo / Descrição */}
           <p className={styles.description}>
@@ -185,7 +185,7 @@ export default function ProductHero() {
               href={companyLinks.checkout}
               onClick={() => trackInitiateCheckout()}
               className={styles.buyButton}
-              aria-label="Comprar Caneta Depiladora Facial Agora"
+              aria-label="Comprar Caneta Depiladora Agora"
             >
               COMPRAR AGORA
             </a>

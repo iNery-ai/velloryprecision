@@ -70,12 +70,13 @@ export const galleryImages: ProductImage[] = [
 ];
 
 export const product = {
-  name: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
-  shortName: "Caneta Depiladora Facial",
+  name: "Caneta Depiladora",
+  shortName: "Caneta Depiladora",
+  brand: "Vellory Precision",
   category: "Depilador Facial Portátil",
-  headline: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
+  headline: "Caneta Depiladora",
   subheadline:
-    "Retoques precisos no contorno da sobrancelha, buço e rosto, com ponta compacta e luz LED integrada para enxergar até os fios mais finos.",
+    "Retoque os fios ao redor da sobrancelha com uma ponta compacta e LED integrado para enxergar melhor onde passar.",
   rating: 4.9,
   reviewsCount: 1482,
 
@@ -147,7 +148,7 @@ export const product = {
 } as const;
 
 export const offerStack = [
-  { item: "1× Caneta Depiladora Facial Elétrica Bivolt", originalValue: "R$ 79,90", isBonus: false },
+  { item: "1× Caneta Depiladora", originalValue: "R$ 79,90", isBonus: false },
   { item: "1× Cabo de Carregamento USB Rápido", originalValue: "R$ 19,90", isBonus: false },
   { item: "1× Escovinha Higiênica de Limpeza", originalValue: "R$ 9,90", isBonus: false },
   { item: "1× Tampa Protetora Anatômica de Bolsa", originalValue: "R$ 14,90", isBonus: false },
@@ -269,7 +270,7 @@ export const howToUseSteps = [
 ];
 
 export const kitItems = [
-  { name: "1× Caneta Depiladora Facial Elétrica", desc: "Corpo anatômico em ABS e ponta hipoalergênica" },
+  { name: "1× Caneta Depiladora", desc: "Corpo anatômico em ABS e ponta hipoalergênica" },
   { name: "1× Tampa Protetora", desc: "Proteção higiênica contra poeira e impactos" },
   { name: "1× Cabo de Carregamento USB", desc: "Compatível com qualquer carregador de celular ou computador" },
   { name: "1× Escovinha de Limpeza Cerdas Macias", desc: "Para higienização rápida após o uso" },
@@ -277,7 +278,8 @@ export const kitItems = [
 ];
 
 export const technicalSpecs = [
-  { label: "Produto", value: "Caneta Depiladora Facial Elétrica Portátil" },
+  { label: "Produto", value: "Caneta Depiladora" },
+  { label: "Marca", value: "Vellory Precision" },
   { label: "Alimentação", value: "Bateria de Lítio Recarregável (Bivolt 110V/220V)" },
   { label: "Tempo de Carregamento", value: "Aprox. 2 horas (via cabo USB incluso)" },
   { label: "Autonomia da Bateria", value: "Até 60 minutos de uso contínuo" },

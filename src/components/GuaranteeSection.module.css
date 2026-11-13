@@ -73,12 +73,14 @@
   font-size: clamp(1.5rem, 2.5vw, 2.125rem);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--color-ivory);
 }
 
 .desc {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
-  color: var(--color-beige);
+  color: var(--color-ivory);
+  opacity: 0.95;
 }
 
 .desc strong {
@@ -93,12 +95,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-rose-soft);
+  background-color: var(--color-rose);
   color: var(--color-espresso);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 0.875rem 1.75rem;
+  letter-spacing: 0.04em;
+  padding: 0.875rem 2rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -106,7 +108,7 @@
 }
 
 .guaranteeButton:hover {
-  background-color: #fff;
+  background-color: var(--color-rose-soft);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }

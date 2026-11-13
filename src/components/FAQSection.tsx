@@ -18,7 +18,7 @@ export default function FAQSection() {
           <span className="section-tagline">Tire Suas Dúvidas</span>
           <h2 className="section-title">Perguntas Frequentes</h2>
           <p className="section-subtitle">
-            Tudo o que você precisa saber antes de adquirir sua caneta depiladora facial.
+            Tudo o que você precisa saber antes de adquirir sua Caneta Depiladora.
           </p>
         </div>
 

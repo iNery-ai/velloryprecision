@@ -25,7 +25,7 @@ export function trackInitiateCheckout(value = 89.9, currency = "BRL") {
   trackEvent("InitiateCheckout", {
     value,
     currency,
-    content_name: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
+    content_name: "Caneta Depiladora",
     content_category: "Depilação Facial",
     num_items: 1,
   });

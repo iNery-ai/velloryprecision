@@ -19,30 +19,31 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://velloryprecision.vercel.app"),
-  title: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt — Sobrancelhas e Buço Sem Dor",
+  title: "Caneta Depiladora — Vellory Precision",
   description:
-    "Depilação facial de alta precisão 100% indolor com micro-lâminas hipoalergênicas, luz LED integrada e bateria recarregável USB Bivolt. Oferta Especial de Black Friday de R$ 103,39 por R$ 89,90 no PIX com Frete Grátis e 7 dias de garantia.",
+    "Caneta Depiladora da Vellory Precision. Retoque os fios ao redor da sobrancelha com ponta compacta e LED integrado. Oferta de Black Friday por R$ 89,90 no Pix com frete grátis e 7 dias para devolução.",
   keywords: [
     "caneta depiladora",
-    "depilador facial eletrico recarregavel",
+    "vellory precision",
+    "depilador facial portatil",
     "aparador de sobrancelhas",
     "depilacao facial indolor",
-    "depilador portatil usb bivolt",
+    "depilador recarregavel usb",
   ],
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
+    title: "Caneta Depiladora — Vellory Precision",
     description:
-      "Retoques precisos no contorno da sobrancelha e buço com luz LED integrada e acabamento elegante. Especial Black Friday por R$ 89,90 no PIX.",
+      "Caneta Depiladora da Vellory Precision com ponta compacta, LED integrado e recarga via USB. R$ 89,90 no Pix com frete grátis.",
     images: [
       {
         url: "/images/caneta-com-tampa.png",
         width: 1080,
         height: 1080,
-        alt: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
+        alt: "Caneta Depiladora — Vellory Precision",
       },
     ],
     locale: "pt_BR",
