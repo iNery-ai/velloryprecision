@@ -1,0 +1,98 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(250, 246, 240, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232, 217, 205, 0.8);
+  transition: all 0.2s ease;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-height: 44px; /* Touch target accessibility */
+}
+
+.logoImage {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-espresso);
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-rose-accent);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.ctaButton {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ivory);
+  background-color: var(--color-espresso);
+  padding: 0.55rem 1.25rem;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-espresso-light);
+  transform: translateY(-1px);
+}
+
+.ctaButton:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    height: 54px;
+  }
+  .logoImage {
+    height: 24px;
+  }
+  .ctaButton {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.9rem;
+    min-height: 38px;
+  }
+}

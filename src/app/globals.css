@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+
+:root {
+  /* Paleta Editorial Obrigatória */
+  --color-ivory: #FAF6F0;
+  --color-ivory-light: #FDFBF7;
+  --color-beige: #E8D9CD;
+  --color-beige-subtle: #F3ECE6;
+  --color-beige-dark: #D4C3B5;
+  --color-espresso: #2D211D;
+  --color-espresso-light: #4A3B35;
+  --color-espresso-muted: #72625C;
+  --color-rose: #C9A69A;
+  --color-rose-soft: #D4B5A9;
+  --color-rose-accent: #B88E81;
+  --color-gold-star: #D4AF37;
+  --color-green-success: #2E7D32;
+
+  /* Tipografia */
+  --font-primary: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout */
+  --container-max: 1240px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Transições e Sombras Suaves */
+  --shadow-subtle: 0 4px 20px rgba(45, 33, 29, 0.05);
+  --shadow-card: 0 8px 30px rgba(45, 33, 29, 0.08);
+  --shadow-float: 0 10px 40px rgba(45, 33, 29, 0.12);
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem; /* Previne auto-zoom indesejado no iOS Safari */
+}
+
+/* Container padrão de até 1240px com 20px de respiro no celular */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Badges e tags editoriais */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: var(--color-beige);
+  color: var(--color-espresso);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(45, 33, 29, 0.08);
+}
+
+.badge-tag-rose {
+  background-color: rgba(201, 166, 154, 0.2);
+  color: var(--color-espresso);
+  border-color: var(--color-rose-soft);
+}
+
+/* Tipografia de Seção */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-tagline {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-rose-accent);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-espresso);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-espresso-muted);
+  line-height: 1.6;
+}
+
+/* Otimização Mobile para Cabeçalhos de Seção */
+@media (max-width: 768px) {
+  .section-header {
+    margin: 0 auto 2rem auto;
+  }
+  .section-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.35rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 0.625rem;
+  }
+  .section-subtitle {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+}
+
+/* Utilitário para ocultar visualmente mantendo acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

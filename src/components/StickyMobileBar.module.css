@@ -1,0 +1,126 @@
+.bar {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(250, 246, 240, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-beige);
+    box-shadow: 0 -4px 20px rgba(45, 33, 29, 0.12);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 16px;
+    gap: 0.875rem;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 1px;
+  }
+
+  .topMeta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bfMiniBadge {
+    font-size: 0.625rem;
+    font-weight: 800;
+    color: #fff;
+    background-color: #D32F2F;
+    padding: 1px 5px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.03em;
+  }
+
+  .productName {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-espresso-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .priceRow {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .currentPrice {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--color-espresso);
+  }
+
+  .pixTag {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: var(--color-green-success);
+    background-color: rgba(46, 125, 50, 0.1);
+    padding: 1px 5px;
+    border-radius: var(--radius-pill);
+  }
+
+  .freeShipping {
+    font-size: 0.625rem;
+    color: var(--color-green-success);
+    font-weight: 700;
+  }
+
+  .ctaButton {
+    background-color: var(--color-espresso);
+    color: var(--color-ivory);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.25rem;
+    min-height: 48px; /* Altura ergonômica recomendada para o polegar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(45, 33, 29, 0.25);
+    transition: all var(--transition-fast);
+  }
+
+  .ctaButton:active {
+    transform: scale(0.97);
+    background-color: var(--color-espresso-light);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,132 @@
+.section {
+  padding: 4rem 0;
+  background-color: var(--color-beige-subtle);
+}
+
+.card {
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--color-beige-dark);
+}
+
+.badgeColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.guaranteeSeal {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px dashed var(--color-rose-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(232, 217, 205, 0.1);
+  box-shadow: 0 0 0 8px rgba(201, 166, 154, 0.15);
+}
+
+.sealNumber {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-rose-soft);
+}
+
+.sealText {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-ivory);
+}
+
+.sealSub {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-rose);
+}
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tag {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rose-soft);
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-beige);
+}
+
+.desc strong {
+  color: #fff;
+}
+
+/* ================================================================== */
+/*  OTIMIZAÇÕES MOBILE (UI/UX)                                        */
+/* ================================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    padding: 1.75rem 1.25rem;
+    gap: 1.25rem;
+    text-align: center;
+    border-radius: var(--radius-md);
+  }
+
+  .guaranteeSeal {
+    width: 96px;
+    height: 96px;
+    box-shadow: 0 0 0 5px rgba(201, 166, 154, 0.15);
+  }
+
+  .sealNumber {
+    font-size: 2rem;
+  }
+
+  .sealText {
+    font-size: 0.6875rem;
+  }
+
+  .sealSub {
+    font-size: 0.5625rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+}

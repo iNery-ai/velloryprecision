@@ -1,0 +1,178 @@
+.section {
+  padding: 5rem 0;
+  background-color: var(--color-beige-subtle);
+  border-top: 1px solid var(--color-beige);
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.imageColumn {
+  position: sticky;
+  top: 90px;
+}
+
+.kitCard {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-beige);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.kitTag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.boxTitle {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin-bottom: 1rem;
+}
+
+.itemsBox {
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.itemsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.itemRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkIcon {
+  color: var(--color-green-success);
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 1px;
+}
+
+.itemName {
+  font-size: 0.9375rem;
+  color: var(--color-espresso);
+  display: block;
+}
+
+.itemDesc {
+  font-size: 0.8125rem;
+  color: var(--color-espresso-muted);
+}
+
+.specsBox {
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.specsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid rgba(45, 33, 29, 0.07);
+  font-size: 0.875rem;
+  gap: 1rem;
+}
+
+.specRow:last-child {
+  border-bottom: none;
+}
+
+.specLabel {
+  font-weight: 600;
+  color: var(--color-espresso);
+}
+
+.specValue {
+  color: var(--color-espresso-light);
+  text-align: right;
+}
+
+/* ================================================================== */
+/*  OTIMIZAÇÕES MOBILE (UI/UX)                                        */
+/* ================================================================== */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .imageColumn {
+    position: static;
+  }
+
+  .contentColumn {
+    gap: 1.25rem;
+  }
+
+  .itemsBox,
+  .specsBox {
+    padding: 1.125rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .boxTitle {
+    font-size: 1.0625rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .specRow {
+    padding: 0.5rem 0;
+    font-size: 0.8125rem;
+  }
+}

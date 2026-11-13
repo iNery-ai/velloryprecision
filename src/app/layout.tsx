@@ -1,0 +1,85 @@
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#FAF6F0",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
+  title: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt — Sobrancelhas e Buço Sem Dor",
+  description:
+    "Depilação facial de alta precisão 100% indolor com micro-lâminas hipoalergênicas, luz LED integrada e bateria recarregável USB Bivolt. Oferta Especial de Black Friday de R$ 103,39 por R$ 89,90 no PIX com Frete Grátis e 7 dias de garantia.",
+  keywords: [
+    "caneta depiladora",
+    "depilador facial eletrico recarregavel",
+    "aparador de sobrancelhas",
+    "depilacao facial indolor",
+    "depilador portatil usb bivolt",
+  ],
+  openGraph: {
+    title: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
+    description:
+      "Retoques precisos no contorno da sobrancelha e buço com luz LED integrada e acabamento elegante. Especial Black Friday por R$ 89,90 no PIX.",
+    images: [
+      {
+        url: "/images/caneta-com-tampa.png",
+        width: 1080,
+        height: 1080,
+        alt: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt-BR">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body>
+        {/* Meta Pixel Code */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '1160826213302373');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1160826213302373&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        {children}
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,137 @@
+.section {
+  padding: 5rem 0;
+  background-color: var(--color-ivory);
+}
+
+.accordion {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item {
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.itemOpen {
+  border-color: var(--color-espresso);
+  box-shadow: var(--shadow-subtle);
+  background-color: var(--color-beige-subtle);
+}
+
+.questionButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  min-height: 52px; /* Área ergonômica mínima de toque para dedos */
+  text-align: left;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.questionButton:active {
+  background-color: rgba(45, 33, 29, 0.04);
+}
+
+.questionText {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  line-height: 1.4;
+}
+
+.chevron {
+  font-size: 1.25rem;
+  color: var(--color-espresso-muted);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--color-espresso);
+}
+
+.answerWrapper {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.answerText {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-espresso-light);
+}
+
+.supportBox {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--color-espresso-muted);
+}
+
+.supportLink {
+  color: var(--color-espresso);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition-fast);
+}
+
+.supportLink:hover {
+  color: var(--color-green-success);
+}
+
+/* ================================================================== */
+/*  OTIMIZAÇÕES MOBILE (UI/UX)                                        */
+/* ================================================================== */
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .accordion {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .item {
+    border-radius: var(--radius-sm);
+  }
+
+  .questionButton {
+    padding: 0.875rem 1rem;
+    min-height: 48px;
+  }
+
+  .questionText {
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
+
+  .chevron {
+    font-size: 1.125rem;
+  }
+
+  .answerWrapper {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .answerText {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+
+  .supportBox {
+    font-size: 0.8125rem;
+    padding: 0 0.5rem;
+  }
+}
