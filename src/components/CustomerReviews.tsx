@@ -1,55 +1,36 @@
 "use client";
 
 import Image from "next/image";
-import { customerReviews, carouselPhotos, product, companyLinks } from "@/data/product";
+import { customerReviews, carouselPhotos, companyLinks } from "@/data/product";
 import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./CustomerReviews.module.css";
 
 export default function CustomerReviews() {
-  // Duplicar a lista de fotos para criar o efeito contínuo infinito (loop contínuo)
   const duplicatedPhotos = [...carouselPhotos, ...carouselPhotos];
 
   return (
     <section id="avaliacoes" className={styles.section} aria-label="Avaliações de Clientes">
       <div className="container">
-        {/* Cabeçalho da Seção com Métricas de Confiança */}
+        {/* Cabeçalho da Seção */}
         <div className="section-header">
-          <span className="section-tagline">100% Clientes Reais</span>
-          <h2 className="section-title">Quem comprou, aprovou e recomenda</h2>
+          <h2 className="section-title">Avaliações de quem comprou</h2>
           
-          <div className={styles.summaryBar}>
-            <div className={styles.ratingBadge}>
-              <span className={styles.ratingNumber}>{product.rating}</span>
-              <div className={styles.starsRow} aria-label="5 de 5 estrelas">★★★★★</div>
+          {/* Bloco Simples de Nota e Estrelas */}
+          <div className={styles.ratingBlock}>
+            <div className={styles.ratingScoreRow}>
+              <span className={styles.ratingScore}>4,9</span>
+              <div className={styles.starsRow} aria-label="Classificação 4,9 de 5 estrelas">
+                {"★★★★★"}
+              </div>
             </div>
-            
-            <div className={styles.statsDivider} />
-
-            <div className={styles.metricItem}>
-              <strong>98.6%</strong>
-              <span>Aprovação comprovada</span>
-            </div>
-
-            <div className={styles.statsDivider} />
-
-            <div className={styles.metricItem}>
-              <strong>{product.reviewsCount.toLocaleString("pt-BR")}</strong>
-              <span>Pedidos entregues</span>
-            </div>
-
-            <div className={styles.statsDivider} />
-
-            <div className={styles.metricItem}>
-              <span className={styles.badgeHighlight}>Fotos Reais</span>
-              <span>Enviadas por quem comprou</span>
-            </div>
+            <span className={styles.reviewsLabel}>
+              Avaliações verificadas de clientes
+            </span>
           </div>
         </div>
       </div>
 
-      {/* ============================================================ */}
-      {/*  BANNER DE FOTOS EM CARROSSEL AUTOMÁTICO (INFINITE MARQUEE)   */}
-      {/* ============================================================ */}
+      {/* Banner de Fotos Reais de Clientes em Carrossel Contínuo */}
       <div className={styles.carouselContainer} aria-hidden="true">
         <div className={styles.carouselTrack}>
           {duplicatedPhotos.map((photo, idx) => (
@@ -62,16 +43,13 @@ export default function CustomerReviews() {
                 className={styles.carouselImage}
                 loading={idx < 6 ? "eager" : "lazy"}
               />
-              <span className={styles.photoOverlayBadge}>✓ Cliente Real</span>
             </div>
           ))}
         </div>
       </div>
 
       <div className="container">
-        {/* ============================================================ */}
-        {/*  DEPOIMENTOS ESCRITOS ABAIXO DO CARROSSEL                   */}
-        {/* ============================================================ */}
+        {/* Depoimentos Escritos de Compradores Reais */}
         <div className={styles.reviewsGrid}>
           {customerReviews.map((rev) => (
             <article key={rev.id} className={styles.reviewCard}>
@@ -108,21 +86,16 @@ export default function CustomerReviews() {
           ))}
         </div>
 
-        {/* CTA Agressivo após as avaliações */}
+        {/* CTA Sóbrio para o Checkout */}
         <div className={styles.ctaWrapper}>
-          <div className={styles.ctaBox}>
-            <p className={styles.ctaUrgency}>
-              🔥 <strong>Black Friday em andamento:</strong> Aproveite o preço de <strong>R$ 89,90 no PIX</strong> com Frete Grátis antes que o lote acabe!
-            </p>
-            <a
-              href={companyLinks.checkout}
-              onClick={() => trackInitiateCheckout()}
-              className={styles.reviewButton}
-            >
-              <span>QUERO MINHA CANETA COM 13% OFF</span>
-              <span className={styles.buttonSub}>Envio Imediato • 7 Dias de Garantia</span>
-            </a>
-          </div>
+          <a
+            href={companyLinks.checkout}
+            onClick={() => trackInitiateCheckout()}
+            className={styles.reviewButton}
+            aria-label="Comprar Caneta Depiladora Agora"
+          >
+            COMPRAR AGORA · R$ 89,90
+          </a>
         </div>
       </div>
     </section>
