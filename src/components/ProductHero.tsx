@@ -12,8 +12,6 @@ function formatBRL(value: number) {
 
 export default function ProductHero() {
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [cep, setCep] = useState("");
-  const [cepCalculated, setCepCalculated] = useState(false);
 
   const mobileScrollRef = useRef<HTMLDivElement>(null);
 
@@ -56,13 +54,6 @@ export default function ProductHero() {
   const installmentCount = product.pricing.installments.count; // 12
   const installmentValue = product.pricing.installments.value; // R$ 9,33
   const discountPercent = product.pricing.discountPercent; // 13% OFF
-
-  const handleCepSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (cep.replace(/\D/g, "").length >= 8) {
-      setCepCalculated(true);
-    }
-  };
 
   return (
     <section id="produto" className={styles.section}>
@@ -276,8 +267,8 @@ export default function ProductHero() {
               onClick={() => trackInitiateCheckout()}
               className={styles.buyButton}
             >
-              <span>GARANTIR MINHA CANETA COM 13% OFF</span>
-              <span className={styles.subCta}>Frete Grátis • Envio Imediato • 7 Dias de Garantia</span>
+              <span>QUERO MINHA CANETA POR R$ 89,90 →</span>
+              <span className={styles.subCta}>Frete Grátis • Garantia 7 Dias • Últimas Unidades</span>
             </a>
           </div>
 
@@ -289,71 +280,6 @@ export default function ProductHero() {
                 <span className={styles.pillTitle}>{b.title}</span>
               </span>
             ))}
-          </div>
-
-          {/* 3 Blocos de Informações Oficiais Padronizadas */}
-          <div className={styles.officialTrustGrid}>
-            <div className={styles.officialTrustItem}>
-              <div className={styles.trustIconHeader}>
-                <span className={styles.iconSymbol}>🔒</span>
-                <strong>{product.trustInfo.payment.title}</strong>
-              </div>
-              <p className={styles.trustDesc}>{product.trustInfo.payment.desc}</p>
-            </div>
-
-            <div className={styles.officialTrustItem}>
-              <div className={styles.trustIconHeader}>
-                <span className={styles.iconSymbol}>🛡️</span>
-                <strong>{product.trustInfo.guarantee.title}</strong>
-              </div>
-              <p className={styles.trustDesc}>{product.trustInfo.guarantee.desc}</p>
-            </div>
-
-            <div className={styles.officialTrustItem}>
-              <div className={styles.trustIconHeader}>
-                <span className={styles.iconSymbol}>📦</span>
-                <strong>{product.trustInfo.delivery.title}</strong>
-              </div>
-              <p className={styles.trustDesc}>{product.trustInfo.delivery.desc}</p>
-            </div>
-          </div>
-
-          {/* Seção de Frete com "Em estoque, pronto para envio!" e consulta de CEP */}
-          <div className={styles.shippingBox}>
-            <div className={styles.shippingTitle}>
-              <span className={styles.shippingBadgeIcon}>🚚</span>
-              <strong>{product.stock.statusText}</strong>
-            </div>
-            <p className={styles.shippingHelperText}>
-              Informe o CEP para ver o prazo da sua região.
-            </p>
-            <form onSubmit={handleCepSubmit} className={styles.shippingForm}>
-              <input
-                type="text"
-                placeholder="Insira seu CEP (ex: 01310-100)"
-                maxLength={9}
-                value={cep}
-                onChange={(e) => setCep(e.target.value)}
-                className={styles.cepInput}
-                aria-label="CEP para consulta de prazo"
-              />
-              <button type="submit" className={styles.cepButton}>
-                Consultar
-              </button>
-            </form>
-            {cepCalculated && (
-              <div className={styles.shippingResult}>
-                <span className={styles.checkIcon}>✓</span>
-                <div>
-                  <p className={styles.shippingHighlight}>
-                    <strong>Frete Grátis</strong> garantido para a sua localidade!
-                  </p>
-                  <p className={styles.shippingTime}>
-                    Prazo estimado: <strong>5 a 10 dias úteis</strong> com código de rastreamento.
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>

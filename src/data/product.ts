@@ -422,6 +422,23 @@ export const customerReviews: CustomerReview[] = [
   },
 ];
 
+export const carouselPhotos = [
+  { src: "/images/depoimentos/dep1-1.webp", alt: "Cliente usando caneta depiladora" },
+  { src: "/images/depoimentos/dep1-2.webp", alt: "Caneta depiladora ponta e acabamento" },
+  { src: "/images/depoimentos/dep1-3.jpg", alt: "Embalagem recebida lacrada" },
+  { src: "/images/depoimentos/dep1-4.webp", alt: "Caneta depiladora portátil" },
+  { src: "/images/depoimentos/dep2-1.webp", alt: "Caneta depiladora preta e gold" },
+  { src: "/images/depoimentos/dep2-2.webp", alt: "Design elegante estilo batom" },
+  { src: "/images/depoimentos/dep2-3.webp", alt: "Ponta de precisão 360 graus" },
+  { src: "/images/depoimentos/dep2-4.webp", alt: "Tampa protetora e corpo portátil" },
+  { src: "/images/depoimentos/dep3-1.webp", alt: "Micro LED integrado aceso" },
+  { src: "/images/depoimentos/dep3-2.webp", alt: "Acabamento de luxo e precisão" },
+  { src: "/images/depoimentos/dep4-1.webp", alt: "Kit completo unboxing" },
+  { src: "/images/depoimentos/dep4-2.webp", alt: "Cabo USB e escovinha de limpeza" },
+  { src: "/images/depoimentos/dep4-3.webp", alt: "Leveza e facilidade no manuseio" },
+  { src: "/images/depoimentos/dep4-4.webp", alt: "Detalhes do carregamento USB" },
+];
+
 export const faqList = [
   {
     q: "A depilação com a caneta depiladora dói?",
@@ -458,6 +475,10 @@ export const faqList = [
   {
     q: "Como recebo o Guia Digital de Sobrancelha (Bônus Black Friday)?",
     a: "Assim que o seu pedido for confirmado, o e-book ilustrado em PDF 'Guia Prático do Contorno Perfeito em Casa' será enviado diretamente para o seu e-mail de compra para você já começar a aprender as melhores técnicas de visagismo.",
+  },
+  {
+    q: "Quais são as especificações técnicas da caneta?",
+    a: "Bateria de Lítio recarregável USB Bivolt (110V/220V) com autonomia de até 60 minutos. Corpo em polímero ABS com ponta em aço cirúrgico hipoalergênico. LED branco de alto brilho integrado. Dimensões: 13,0 cm × 2,0 cm. Peso: apenas 32 gramas. Cores sortidas conforme disponibilidade do lote.",
   },
 ];
 

@@ -6,7 +6,7 @@ export default function AnnouncementBar() {
       <div className={styles.container}>
         <span className={styles.badgeBf}>BLACK FRIDAY</span>
         <p className={styles.text}>
-          <strong>FRETE GRÁTIS</strong> PARA TODO O BRASIL • DE R$ 103,39 POR <strong>R$ 89,90 NO PIX</strong> (13% OFF) OU <strong>12X DE R$ 9,33</strong> NO CARTÃO
+          🔥 Caneta Depiladora por <strong>R$ 89,90 no PIX</strong> — ÚLTIMAS UNIDADES COM <strong>FRETE GRÁTIS</strong>
         </p>
       </div>
     </div>

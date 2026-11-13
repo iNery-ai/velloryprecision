@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://velloryprecision.vercel.app"),
   title: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt — Sobrancelhas e Buço Sem Dor",
   description:
     "Depilação facial de alta precisão 100% indolor com micro-lâminas hipoalergênicas, luz LED integrada e bateria recarregável USB Bivolt. Oferta Especial de Black Friday de R$ 103,39 por R$ 89,90 no PIX com Frete Grátis e 7 dias de garantia.",

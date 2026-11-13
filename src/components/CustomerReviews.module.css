@@ -1,24 +1,23 @@
 .section {
-  padding: 5.5rem 0;
-  background-color: var(--color-ivory);
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-surface-soft);
   position: relative;
+  overflow: hidden;
 }
 
-/* ================================================================== */
-/*  BARRA DE RESUMO & MÉTRICAS DE CONFIANÇA                          */
-/* ================================================================== */
-
+/* Barra de Resumo e Métricas */
 .summaryBar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  padding: 1rem 1.5rem;
-  background-color: var(--color-beige);
-  border: 1px solid rgba(45, 33, 29, 0.08);
-  border-radius: var(--radius-md);
-  max-width: 860px;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
   flex-wrap: wrap;
@@ -27,26 +26,26 @@
 .ratingBadge {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: var(--spacing-xs);
 }
 
 .ratingNumber {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--color-espresso);
-  line-height: 1;
 }
 
 .starsRow {
-  color: var(--color-gold-star);
-  font-size: 1.125rem;
+  color: var(--color-gold);
+  font-size: 1.1rem;
   letter-spacing: 2px;
 }
 
 .statsDivider {
   width: 1px;
-  height: 32px;
-  background-color: rgba(45, 33, 29, 0.12);
+  height: 24px;
+  background-color: var(--color-border);
 }
 
 .metricItem {
@@ -54,549 +53,310 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.125rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
 }
 
 .metricItem strong {
-  font-size: 1.125rem;
-  font-weight: 700;
   color: var(--color-espresso);
-}
-
-.metricItem span {
-  font-size: 0.75rem;
-  color: var(--color-espresso-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.9375rem;
+  font-weight: 700;
 }
 
 .badgeHighlight {
-  display: inline-block;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  font-size: 0.6875rem !important;
-  font-weight: 700 !important;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-  letter-spacing: 0.05em;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 0.9375rem;
 }
 
-/* ================================================================== */
-/*  GRID DE AVALIAÇÕES COM FOTOS REAIS                               */
-/* ================================================================== */
+/* ============================================================ */
+/*  BANNER CARROSSEL INFINITO DE FOTOS                          */
+/* ============================================================ */
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  margin: var(--spacing-3xl) 0 var(--spacing-4xl) 0;
+  position: relative;
+  padding: var(--spacing-xs) 0;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
 
+.carouselTrack {
+  display: flex;
+  gap: var(--spacing-md);
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.carouselTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carouselSlide {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-surface);
+  background: var(--color-surface);
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.carouselSlide:hover .carouselImage {
+  transform: scale(1.05);
+}
+
+.photoOverlayBadge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(45, 33, 29, 0.85);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================ */
+/*  GRID DE DEPOIMENTOS ESCRITOS                                */
+/* ============================================================ */
 .reviewsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
-  margin-top: 2.5rem;
-  margin-bottom: 3rem;
+  gap: var(--spacing-xl);
 }
 
 .reviewCard {
-  background-color: var(--color-beige);
-  border: 1px solid rgba(45, 33, 29, 0.08);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  box-shadow: var(--shadow-subtle);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .reviewCard:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-rose);
 }
 
-.cardTop {
+.cardHeader {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
+  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
-.starsGroup {
+.authorMeta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--spacing-sm);
 }
 
-.stars {
-  color: var(--color-gold-star);
-  letter-spacing: 2px;
+.avatarCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-beige), var(--color-rose-light));
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  font-family: var(--font-heading);
+}
+
+.authorName {
   font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin: 0;
+  line-height: 1.2;
 }
 
-.verifiedTag {
+.authorLocation {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.verifiedBadge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--color-green-success);
-  background-color: rgba(46, 125, 50, 0.08);
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-  letter-spacing: 0.02em;
-}
-
-.date {
-  font-size: 0.75rem;
-  color: var(--color-espresso-muted);
-}
-
-/* Tag discreta com a variante/cor recebida */
-.variantBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
+  background: #E8F5E9;
+  color: #2E7D32;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-espresso);
-  background-color: rgba(45, 33, 29, 0.04);
-  border: 1px solid rgba(45, 33, 29, 0.08);
-  padding: 0.25rem 0.625rem;
-  border-radius: var(--radius-sm);
-  width: fit-content;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
 }
 
-.variantIcon {
-  color: var(--color-rose);
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.stars {
+  color: var(--color-gold);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.reviewDate {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.variantBadge {
   font-size: 0.75rem;
+  background: var(--color-surface-soft);
+  color: var(--color-primary-dark);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
 }
 
 .reviewTitle {
   font-size: 1.0625rem;
   font-weight: 700;
   color: var(--color-espresso);
+  margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.35;
 }
 
-.reviewText {
+.reviewComment {
   font-size: 0.9375rem;
+  color: var(--color-text-body);
   line-height: 1.6;
-  color: var(--color-espresso-light);
-  flex: 1;
+  margin: 0;
 }
 
-/* ================================================================== */
-/*  MINIATURAS DE FOTOS REAIS DA CLIENTE                              */
-/* ================================================================== */
-
-.photosWrapper {
+/* ============================================================ */
+/*  BLOCO CTA AGRESSIVO                                         */
+/* ============================================================ */
+.ctaWrapper {
+  margin-top: var(--spacing-3xl);
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background-color: rgba(250, 246, 240, 0.65);
-  border: 1px solid rgba(45, 33, 29, 0.06);
-  border-radius: var(--radius-sm);
+  justify-content: center;
 }
 
-.photosLabel {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-espresso-muted);
-}
-
-.photoThumbnails {
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.25rem;
-  scrollbar-width: thin;
-}
-
-.thumbButton {
-  position: relative;
-  width: 72px;
-  height: 72px;
-  flex-shrink: 0;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  border: 1.5px solid rgba(45, 33, 29, 0.12);
-  background-color: #000;
-  cursor: pointer;
-  padding: 0;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
-}
-
-.thumbButton:hover {
-  transform: scale(1.04);
-  border-color: var(--color-espresso);
-}
-
-.thumbButton:focus-visible {
-  outline: 2px solid var(--color-espresso);
-  outline-offset: 2px;
-}
-
-.thumbImage {
+.ctaBox {
+  background: var(--color-surface);
+  border: 2px solid var(--color-rose);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  text-align: center;
+  max-width: 640px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity var(--transition-fast);
+  box-shadow: var(--shadow-md);
 }
 
-.zoomHint {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(45, 33, 29, 0.4);
-  color: #fff;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.thumbButton:hover .zoomHint {
-  opacity: 1;
-}
-
-/* ================================================================== */
-/*  RODAPÉ DO CARD COM AUTORA                                         */
-/* ================================================================== */
-
-.authorRow {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding-top: 0.875rem;
-  border-top: 1px solid rgba(45, 33, 29, 0.08);
-}
-
-.avatarCircle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
+.ctaUrgency {
   font-size: 0.9375rem;
-  flex-shrink: 0;
-}
-
-.authorInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.authorName {
-  font-size: 0.9375rem;
-  font-weight: 700;
   color: var(--color-espresso);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.4;
 }
 
-.authorLocation {
-  font-size: 0.75rem;
-  color: var(--color-espresso-muted);
-}
-
-/* ================================================================== */
-/*  BOTÃO CTA INFERIOR                                                */
-/* ================================================================== */
-
-.actionCta {
-  display: flex;
-  justify-content: center;
+.ctaUrgency strong {
+  color: var(--color-primary-dark);
 }
 
 .reviewButton {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  padding: 1rem 2.5rem;
-  font-size: 0.9375rem;
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-full);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-  text-align: center;
-  box-shadow: var(--shadow-subtle);
+  font-size: 1.0625rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(184, 80, 66, 0.35);
 }
 
 .reviewButton:hover {
-  background-color: var(--color-espresso-light);
+  background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 6px 20px rgba(184, 80, 66, 0.45);
 }
 
-.reviewButton:active {
-  transform: scale(0.98);
-}
-
-/* ================================================================== */
-/*  MODAL / LIGHTBOX DE FOTOS REAIS                                  */
-/* ================================================================== */
-
-.modalBackdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background-color: rgba(45, 33, 29, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  animation: fadeIn 0.2s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.modalContent {
-  position: relative;
-  background-color: var(--color-ivory);
-  border-radius: var(--radius-md);
-  max-width: 580px;
-  width: 100%;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(232, 217, 205, 0.3);
-}
-
-.closeButton {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 10;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: rgba(45, 33, 29, 0.7);
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.closeButton:hover {
-  background-color: var(--color-espresso);
-  transform: scale(1.08);
-}
-
-.modalImageContainer {
-  position: relative;
-  background-color: #1a1412;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 58vh;
-  max-height: 520px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.modalMainImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: rgba(45, 33, 29, 0.75);
-  color: #fff;
-  border: none;
-  font-size: 1.75rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-  z-index: 5;
-}
-
-.navButton:hover {
-  background-color: var(--color-espresso);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.navPrev {
-  left: 12px;
-}
-
-.navNext {
-  right: 12px;
-}
-
-.modalFooter {
-  padding: 1.25rem 1.5rem;
-  background-color: var(--color-beige);
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-  border-top: 1px solid rgba(45, 33, 29, 0.08);
-}
-
-.modalAuthorMeta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.modalAvatar {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.875rem;
-}
-
-.modalAuthorName {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-espresso);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.modalVerified {
-  font-size: 0.6875rem;
-  color: var(--color-green-success);
-  font-weight: 700;
-}
-
-.modalLocation {
+.buttonSub {
   font-size: 0.75rem;
-  color: var(--color-espresso-muted);
+  font-weight: 500;
+  opacity: 0.9;
+  margin-top: 2px;
 }
 
-.modalCaption {
-  font-size: 0.8125rem;
-  color: var(--color-espresso-light);
-  line-height: 1.4;
-  font-style: italic;
-}
-
-.modalCounter {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-espresso-muted);
-}
-
-/* ================================================================== */
-/*  RESPONSIVIDADE E OTIMIZAÇÃO MOBILE                               */
-/* ================================================================== */
-
+/* ============================================================ */
+/*  RESPONSIVIDADE                                              */
+/* ============================================================ */
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 0;
+    padding: var(--spacing-2xl) 0;
   }
 
   .summaryBar {
-    gap: 0.75rem;
-    padding: 1rem;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .ratingBadge {
-    justify-content: center;
+    border-radius: var(--radius-lg);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
   }
 
   .statsDivider {
     display: none;
   }
 
-  .metricItem {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.375rem 0;
-    border-bottom: 1px solid rgba(45, 33, 29, 0.06);
-  }
-
-  .metricItem:last-child {
-    border-bottom: none;
+  .carouselSlide {
+    width: 140px;
+    height: 140px;
   }
 
   .reviewsGrid {
     grid-template-columns: 1fr;
-    gap: 1.125rem;
-    margin-top: 1.75rem;
-    margin-bottom: 2rem;
+    gap: var(--spacing-md);
   }
 
   .reviewCard {
-    padding: 1.25rem;
-    gap: 0.75rem;
+    padding: var(--spacing-lg);
   }
 
-  .reviewTitle {
-    font-size: 0.9375rem;
-  }
-
-  .reviewText {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-
-  .thumbButton {
-    width: 64px;
-    height: 64px;
-  }
-
-  .reviewButton {
-    width: 100%;
-    min-height: 52px;
-    padding: 0.875rem 1.25rem;
-    font-size: 0.875rem;
-  }
-
-  .modalContent {
-    max-height: 94vh;
-  }
-
-  .modalImageContainer {
-    height: 50vh;
-  }
-
-  .navButton {
-    width: 38px;
-    height: 38px;
-    font-size: 1.5rem;
-  }
-
-  .modalFooter {
-    padding: 1rem;
+  .ctaBox {
+    padding: var(--spacing-lg);
   }
 }
