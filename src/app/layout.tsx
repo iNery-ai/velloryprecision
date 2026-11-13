@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -60,12 +59,8 @@ export default function RootLayout({
     <html lang="pt-BR" className={instrumentSans.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
-      <body>
-        {/* Meta Pixel Code */}
-        <Script
-          id="meta-pixel"
-          strategy="afterInteractive"
+        {/* Meta Pixel Code Oficial no HEAD */}
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -90,6 +85,8 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+      </head>
+      <body>
         {children}
       </body>
     </html>
