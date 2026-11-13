@@ -248,23 +248,23 @@ export const benefitsList = [
 export const howToUseSteps = [
   {
     step: "01",
-    title: "Remova a tampa protetora",
-    desc: "Certifique-se de que a pele do rosto esteja limpa e seca, sem óleos ou maquiagem densa.",
+    title: "Retire a tampa",
+    desc: "Use a caneta com a pele limpa e seca.",
   },
   {
     step: "02",
-    title: "Acione o botão ON",
-    desc: "A luz LED se acenderá automaticamente, iluminando a região exata que você deseja desenhar.",
+    title: "Ligue a caneta",
+    desc: "O LED integrado ajuda a visualizar os fios.",
   },
   {
     step: "03",
-    title: "Movimentos circulares suaves",
-    desc: "Encoste a ponta suavemente na pele e faça pequenos movimentos circulares ao redor da sobrancelha, buço ou queixo.",
+    title: "Faça movimentos circulares",
+    desc: "Encoste a ponta de leve na pele e faça pequenos círculos ao redor da sobrancelha.",
   },
   {
     step: "04",
-    title: "Limpeza rápida em segundos",
-    desc: "Gire a ponta para abrir o compartimento e use a escovinha inclusa para retirar os fios aparados.",
+    title: "Limpe após o uso",
+    desc: "Use a escovinha do kit para retirar os fios aparados.",
   },
 ];
 

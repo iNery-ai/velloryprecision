@@ -20,8 +20,10 @@ export default function HowToUse() {
           {howToUseSteps.map((s) => (
             <div key={s.step} className={styles.stepCard}>
               <div className={styles.stepCircle}>{s.step}</div>
-              <h3 className={styles.stepTitle}>{s.title}</h3>
-              <p className={styles.stepDesc}>{s.desc}</p>
+              <div className={styles.stepContent}>
+                <h3 className={styles.stepTitle}>{s.title}</h3>
+                <p className={styles.stepDesc}>{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
