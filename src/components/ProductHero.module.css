@@ -101,42 +101,34 @@
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 2px solid transparent;
-  padding: 2px;
-  transition: all var(--transition-fast);
   cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
 }
 
 .thumbnailBtn:hover {
-  border-color: var(--color-rose-soft);
-}
-
-.thumbnailBtn:focus-visible {
-  outline: 2px solid var(--color-espresso);
-  outline-offset: 2px;
+  border-color: var(--color-rose-accent);
 }
 
 .thumbnailActive {
   border-color: var(--color-espresso);
-  box-shadow: 0 0 0 1px var(--color-rose-soft);
+  box-shadow: 0 2px 8px rgba(45, 33, 29, 0.15);
 }
 
 .thumbnailImg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
-/* Oculto no desktop */
-.mobileStrip {
-  display: none;
-}
-
+/* Oculto em telas grandes */
+.mobileStrip,
 .mobileDots {
   display: none;
 }
 
 /* ================================================================== */
-/*  PAINEL DE COMPRA (DIREITA)                                        */
+/*  PAINEL DE COMPRA & CONVERSÃO (DIREITA)                            */
 /* ================================================================== */
 
 .buyPanel {
@@ -145,7 +137,7 @@
   gap: 1.25rem;
 }
 
-/* Tag de Campanha Black Friday */
+/* Tag Black Friday */
 .campaignTagRow {
   display: flex;
   align-items: center;
@@ -154,27 +146,27 @@
 
 .bfTag {
   background-color: var(--color-espresso);
-  color: var(--color-rose-soft);
-  font-size: 0.6875rem;
+  color: #fff;
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
 }
 
 .bfTagSubtitle {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--color-espresso-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Avaliações */
+/* Avaliações em Estrelas */
 .ratingBar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .stars {
@@ -262,14 +254,14 @@
 }
 
 .urgencyTitle strong {
-  color: #B71C1C;
+  color: var(--color-red-urgency);
 }
 
 .urgencyCountdown {
   font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #B71C1C;
+  color: var(--color-red-urgency);
   letter-spacing: 0.04em;
 }
 
@@ -453,7 +445,7 @@
   letter-spacing: 0.03em;
 }
 
-/* Informação discreta de cores sortidas (não destacada) */
+/* Informação discreta de cores sortidas */
 .discreetColorNotice {
   font-size: 0.75rem;
   color: var(--color-espresso-muted);
@@ -571,140 +563,6 @@
   font-size: 0.75rem;
 }
 
-/* 3 Blocos de Informações Oficiais */
-.officialTrustGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid rgba(45, 33, 29, 0.08);
-  border-bottom: 1px solid rgba(45, 33, 29, 0.08);
-}
-
-.officialTrustItem {
-  background-color: var(--color-beige-subtle);
-  border: 1px solid var(--color-beige);
-  border-radius: var(--radius-sm);
-  padding: 0.875rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.trustIconHeader {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--color-espresso);
-  font-size: 0.875rem;
-}
-
-.iconSymbol {
-  font-size: 1rem;
-}
-
-.trustDesc {
-  font-size: 0.8125rem;
-  color: var(--color-espresso-muted);
-  line-height: 1.4;
-  margin-left: 24px;
-}
-
-/* Caixa de Frete / Em estoque */
-.shippingBox {
-  background-color: var(--color-beige-subtle);
-  border-radius: var(--radius-sm);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.shippingTitle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  color: var(--color-espresso);
-}
-
-.shippingBadgeIcon {
-  font-size: 1.125rem;
-}
-
-.shippingHelperText {
-  font-size: 0.8125rem;
-  color: var(--color-espresso-muted);
-}
-
-.shippingForm {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 2px;
-}
-
-.cepInput {
-  flex: 1;
-  padding: 0.625rem 0.875rem;
-  font-family: inherit;
-  font-size: 1rem; /* Essencial: 16px para evitar auto-zoom no iOS Safari */
-  border: 1px solid var(--color-beige);
-  border-radius: var(--radius-xs);
-  background-color: #fff;
-  color: var(--color-espresso);
-  min-height: 46px;
-}
-
-.cepInput:focus {
-  outline: none;
-  border-color: var(--color-espresso);
-}
-
-.cepButton {
-  padding: 0.625rem 1.25rem;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  font-size: 0.875rem;
-  font-weight: 700;
-  border-radius: var(--radius-xs);
-  min-height: 46px;
-  transition: background-color var(--transition-fast);
-}
-
-.cepButton:hover {
-  background-color: var(--color-espresso-light);
-}
-
-.cepButton:active {
-  transform: scale(0.97);
-}
-
-.shippingResult {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  background-color: rgba(46, 125, 50, 0.1);
-  border: 1px solid rgba(46, 125, 50, 0.2);
-  padding: 0.625rem 0.875rem;
-  border-radius: var(--radius-xs);
-  font-size: 0.8125rem;
-}
-
-.checkIcon {
-  color: var(--color-green-success);
-  font-weight: 800;
-}
-
-.shippingHighlight {
-  color: var(--color-green-success);
-  margin-bottom: 2px;
-}
-
-.shippingTime {
-  color: var(--color-espresso-light);
-  font-size: 0.75rem;
-}
-
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -771,7 +629,7 @@
     padding: 0.5rem;
   }
 
-  /* Indicadores de Posição com Área de Toque Ergonômica (Apple HIG: min 44px) */
+  /* Indicadores de Posição */
   .mobileDots {
     display: flex;
     justify-content: center;
@@ -782,7 +640,7 @@
 
   .dot {
     position: relative;
-    padding: 12px 6px; /* Área de toque invisível expandida para facilitar toque com polegar */
+    padding: 12px 6px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -804,7 +662,7 @@
     border-radius: var(--radius-pill);
   }
 
-  /* Painel de Compra Mobile: Hierarquia Otimizada contra Fadiga */
+  /* Painel de Compra Mobile */
   .buyPanel {
     gap: 1rem;
   }
@@ -852,15 +710,6 @@
     letter-spacing: 0.04em;
   }
 
-  .officialTrustGrid {
-    padding: 1rem 0;
-    gap: 0.625rem;
-  }
-
-  .officialTrustItem {
-    padding: 0.75rem 0.875rem;
-  }
-
   .urgencyContainer {
     padding: 0.5rem 0.75rem;
   }
@@ -884,14 +733,5 @@
   .objectionPill {
     font-size: 0.6875rem;
     padding: 0.2rem 0.5rem;
-  }
-
-  .trustDesc {
-    margin-left: 20px;
-    font-size: 0.75rem;
-  }
-
-  .shippingBox {
-    padding: 0.875rem;
   }
 }

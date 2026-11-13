@@ -1,6 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-sans",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const viewport: Viewport = {
   themeColor: "#FAF6F0",
@@ -21,6 +29,10 @@ export const metadata: Metadata = {
     "depilacao facial indolor",
     "depilador portatil usb bivolt",
   ],
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Caneta Depiladora Facial Elétrica Recarregável USB Bivolt",
     description:
@@ -44,10 +56,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={instrumentSans.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
         {/* Meta Pixel Code */}
