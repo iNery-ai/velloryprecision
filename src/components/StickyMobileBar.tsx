@@ -58,8 +58,7 @@ export default function StickyMobileBar() {
           aria-label="Comprar Caneta Depiladora com Frete Grátis"
         >
           <span className={styles.ctaMainText}>COMPRAR AGORA</span>
-          <span className={styles.ctaArrow}>→</span>
-          <span className={styles.ctaSubText}>Últimas Unidades • 13% OFF</span>
+          <span className={styles.ctaSubText}>Frete Grátis • 13% OFF</span>
         </a>
       </div>
     </aside>

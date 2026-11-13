@@ -13,8 +13,8 @@ export default function Header() {
           <Image
             src={media.logo.src}
             alt={media.logo.alt}
-            width={180}
-            height={45}
+            width={210}
+            height={52}
             priority
             className={styles.logoImage}
           />
@@ -43,8 +43,9 @@ export default function Header() {
             href={companyLinks.checkout}
             onClick={() => trackInitiateCheckout()}
             className={styles.ctaButton}
+            aria-label="Comprar Caneta Depiladora Agora"
           >
-            Comprar Agora
+            COMPRAR AGORA
           </a>
         </div>
       </div>

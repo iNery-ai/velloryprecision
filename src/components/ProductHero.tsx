@@ -267,8 +267,8 @@ export default function ProductHero() {
               onClick={() => trackInitiateCheckout()}
               className={styles.buyButton}
             >
-              <span>QUERO MINHA CANETA POR R$ 89,90 →</span>
-              <span className={styles.subCta}>Frete Grátis • Garantia 7 Dias • Últimas Unidades</span>
+              <span>COMPRAR AGORA · R$ 89,90</span>
+              <span className={styles.subCta}>Frete Grátis para todo o Brasil • 7 Dias de Garantia</span>
             </a>
           </div>
 

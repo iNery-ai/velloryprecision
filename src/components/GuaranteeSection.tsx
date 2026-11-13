@@ -35,7 +35,7 @@ export default function GuaranteeSection() {
                 onClick={() => trackInitiateCheckout()}
                 className={styles.guaranteeButton}
               >
-                EXPERIMENTAR POR 7 DIAS COM FRETE GRÁTIS →
+                EXPERIMENTAR POR 7 DIAS SEM RISCO
               </a>
             </div>
           </div>

@@ -72,7 +72,7 @@ export default function KitAndSpecs() {
                 onClick={() => trackInitiateCheckout()}
                 className={styles.kitBuyButton}
               >
-                QUERO MEU KIT COMPLETO POR R$ 89,90 →
+                COMPRAR AGORA · R$ 89,90
               </a>
             </div>
           </div>

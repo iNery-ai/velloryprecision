@@ -39,7 +39,7 @@ export default function HowToUse() {
             onClick={() => trackInitiateCheckout()}
             className={styles.howToUseButton}
           >
-            QUERO RETOQUES RÁPIDOS SEM DOR POR R$ 89,90 →
+            COMPRAR AGORA · R$ 89,90
           </a>
         </div>
       </div>

@@ -11,12 +11,11 @@ export default function AnnouncementBar() {
         href={companyLinks.checkout}
         onClick={() => trackInitiateCheckout()}
         className={styles.container}
-        aria-label="Aproveitar oferta especial de Black Friday"
+        aria-label="Aproveitar Black Friday por R$ 89,90 no Pix com frete grátis"
       >
-        <span className={styles.badgeBf}>BLACK FRIDAY</span>
-        <p className={styles.text}>
-          🔥 Caneta Depiladora por <strong>R$ 89,90 no PIX</strong> — ÚLTIMAS UNIDADES COM <strong>FRETE GRÁTIS</strong> →
-        </p>
+        <span className={styles.campaignTag}>BLACK FRIDAY</span>
+        <span className={styles.separator}>·</span>
+        <span className={styles.offerText}>R$ 89,90 no Pix + frete grátis</span>
       </a>
     </aside>
   );

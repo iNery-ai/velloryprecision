@@ -51,7 +51,7 @@ export default function BenefitsFeatures() {
             onClick={() => trackInitiateCheckout()}
             className={styles.buyButton}
           >
-            QUERO ESSA TECNOLOGIA POR R$ 89,90 →
+            COMPRAR AGORA · R$ 89,90
           </a>
         </div>
       </div>

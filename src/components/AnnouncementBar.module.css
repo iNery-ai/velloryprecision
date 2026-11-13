@@ -1,18 +1,15 @@
 .bar {
   background-color: var(--color-espresso);
   color: var(--color-ivory);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(232, 217, 205, 0.15);
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid rgba(232, 217, 205, 0.12);
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   max-width: var(--container-max);
   margin: 0 auto;
   text-decoration: none;
@@ -25,29 +22,54 @@
   opacity: 0.9;
 }
 
-.badgeBf {
-  background: linear-gradient(135deg, #000 0%, #2D211D 100%);
-  color: #fff;
-  border: 1px solid var(--color-rose-soft);
-  font-size: 0.625rem;
+.campaignTag {
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rose-soft);
 }
 
-.text {
-  font-weight: 400;
-}
-
-.text strong {
+.separator {
+  color: var(--color-rose-accent);
   font-weight: 700;
-  color: #fff;
+  opacity: 0.7;
 }
 
+.offerText {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-ivory);
+  letter-spacing: 0.02em;
+}
+
+/* ================================================================== */
+/*  VERSÃO MOBILE: 2 LINHAS CENTRALIZADAS                             */
+/* ================================================================== */
 @media (max-width: 640px) {
   .bar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .campaignTag {
     font-size: 0.6875rem;
-    padding: 0.4rem 0.75rem;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+  }
+
+  .offerText {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
   }
 }
