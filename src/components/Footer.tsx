@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { media, companyLinks } from "@/data/product";
+import { media, companyLinks, sellerInfo } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -7,7 +8,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.topRow}>
-          <div className={styles.brandCol}>
+          {/* BLOCO 1: INFORMAÇÕES DO PRODUTO */}
+          <div className={styles.col}>
             <div className={styles.logoWrapper}>
               <Image
                 src={media.logo.src}
@@ -17,68 +19,83 @@ export default function Footer() {
                 className={styles.footerLogo}
               />
             </div>
-            <p className={styles.brandBio}>
-              Especialistas em produtos de precisão e beleza. Levamos conforto, praticidade e tecnologia indolor para o autocuidado diário de mulheres em todo o Brasil.
-            </p>
-          </div>
-
-          <div className={styles.linksCol}>
-            <h3 className={styles.colTitle}>Navegação Rápida</h3>
+            <h3 className={styles.colTitle}>Informações do Produto</h3>
             <ul className={styles.linkList}>
               <li>
-                <a
-                  href={companyLinks.checkout}
-                  className={styles.buyLinkHighlight}
-                >
-                  ⚡ Comprar Caneta Depiladora (Checkout)
-                </a>
+                <a href="#como-funciona">Como usar</a>
               </li>
-              <li><a href="#como-funciona">Como Usar</a></li>
-              <li><a href="#antes-e-depois">Antes e Depois</a></li>
-              <li><a href="#kit">O que vem no kit</a></li>
-              <li><a href="#avaliacoes">Depoimentos Reais</a></li>
-              <li><a href="#faq">Perguntas Frequentes</a></li>
-            </ul>
-          </div>
-
-          <div className={styles.linksCol}>
-            <h3 className={styles.colTitle}>Atendimento ao Cliente</h3>
-            <ul className={styles.linkList}>
               <li>
-                <a href={`mailto:${companyLinks.email}`}>
-                  {companyLinks.email}
-                </a>
+                <a href="#kit">O que vem no kit</a>
               </li>
-              <li>Horário: Segunda a Sexta, das 09h às 18h</li>
-              <li>Envios com código de rastreio para todo o Brasil</li>
-              <li>Garantia incondicional de 7 dias após o recebimento</li>
+              <li>
+                <a href="#faq">Perguntas frequentes</a>
+              </li>
             </ul>
-          </div>
-        </div>
-
-        {/* Formas de Pagamento (Apenas PIX ou Cartão de Crédito) e Selos de Segurança */}
-        <div className={styles.badgesRow}>
-          <div className={styles.paymentMethods}>
-            <span className={styles.paymentTitle}>Formas de Pagamento Aceitas:</span>
-            <div className={styles.cardBadges}>
-              <span className={styles.cardBadge}>PIX (13% OFF)</span>
-              <span className={styles.cardBadge}>Cartão de Crédito em até 12x</span>
+            <div className={styles.buyBtnWrapper}>
+              <BuyButton fullWidth ariaLabel="Compre agora a Caneta Depiladora" />
             </div>
           </div>
 
-          <div className={styles.securityGuarantees}>
-            <span className={styles.securityItem}>🔒 Pagamento 100% Seguro SSL</span>
-            <span className={styles.securityItem}>🛡️ 7 Dias de Garantia</span>
-            <span className={styles.securityItem}>📦 Entrega em todo o Brasil</span>
+          {/* BLOCO 2: ATENDIMENTO E ENTREGA */}
+          <div className={styles.col}>
+            <h3 className={styles.colTitle}>Atendimento e Entrega</h3>
+            <div className={styles.infoGroup}>
+              <span className={styles.infoSubtitle}>Atendimento ao cliente</span>
+              <a href={`mailto:${sellerInfo.supportEmail}`} className={styles.emailLink}>
+                {sellerInfo.supportEmail}
+              </a>
+              <span className={styles.infoHours}>{sellerInfo.supportHours}</span>
+            </div>
+
+            <p className={styles.logisticsNotice}>
+              {sellerInfo.logisticsNotice}
+            </p>
+
+            <ul className={styles.linkList}>
+              <li>
+                <a href={companyLinks.returns}>Trocas e devoluções</a>
+              </li>
+              <li>
+                <a href={companyLinks.privacy}>Política de Privacidade</a>
+              </li>
+            </ul>
+
+            <div className={styles.paymentRow}>
+              <span className={styles.paymentText}>Pix e cartão de crédito</span>
+            </div>
+          </div>
+
+          {/* BLOCO 3: DADOS DO VENDEDOR */}
+          <div className={styles.col}>
+            <h3 className={styles.colTitle}>Dados do Vendedor</h3>
+            <div className={styles.sellerInfoBox}>
+              <p className={styles.sellerLine}>
+                <span className={styles.sellerLabel}>Marca:</span>{" "}
+                <span className={styles.sellerValue}>{sellerInfo.brand}</span>
+              </p>
+              <p className={styles.sellerLine}>
+                <span className={styles.sellerLabel}>CNPJ:</span>{" "}
+                <span className={styles.sellerValue}>{sellerInfo.cnpj}</span>
+              </p>
+              {sellerInfo.corporateName ? (
+                <p className={styles.sellerLine}>
+                  <span className={styles.sellerLabel}>Razão Social:</span>{" "}
+                  <span className={styles.sellerValue}>{sellerInfo.corporateName}</span>
+                </p>
+              ) : null}
+              {sellerInfo.address ? (
+                <p className={styles.sellerLine}>
+                  <span className={styles.sellerLabel}>Endereço:</span>{" "}
+                  <span className={styles.sellerValue}>{sellerInfo.address}</span>
+                </p>
+              ) : null}
+            </div>
           </div>
         </div>
 
         {/* Linha Final de Copyright */}
         <div className={styles.bottomBar}>
-          <p>© {new Date().getFullYear()} Vellory Precision. Todos os direitos reservados.</p>
-          <p className={styles.disclaimer}>
-            As informações contidas neste site são de propriedade da Vellory Precision.
-          </p>
+          <p>© 2026 Vellory Precision. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

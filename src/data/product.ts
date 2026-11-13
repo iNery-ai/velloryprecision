@@ -511,3 +511,15 @@ export const companyLinks = {
   privacy: "#privacidade",
   returns: "#trocas",
 };
+
+export const sellerInfo = {
+  brand: "Vellory Precision",
+  cnpj: "64.343.230/0001-36",
+  corporateName: process.env.NEXT_PUBLIC_SELLER_CORPORATE_NAME || "", // Razão Social oficial (pendente de envio)
+  address: process.env.NEXT_PUBLIC_SELLER_ADDRESS || "", // Endereço comercial (pendente de envio)
+  supportEmail: "lunnavellory@gmail.com",
+  supportHours: "Segunda a sexta, das 9h às 18h",
+  logisticsPartner: "Kairos",
+  logisticsNotice: "Logística operada pela Kairos. Consulte o frete e o prazo de entrega no checkout.",
+  paymentMethods: "Pix e cartão de crédito",
+};
