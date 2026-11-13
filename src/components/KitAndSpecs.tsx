@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { media, kitItems, technicalSpecs } from "@/data/product";
+import { media, kitItems, technicalSpecs, productFeatures } from "@/data/product";
 import BuyButton from "./BuyButton";
 import styles from "./KitAndSpecs.module.css";
 
@@ -52,9 +52,9 @@ export default function KitAndSpecs() {
               </ul>
             </div>
 
-            {/* Ficha técnica resumida */}
+            {/* Ficha técnica e características */}
             <div className={styles.specsBox}>
-              <h3 className={styles.boxTitle}>Ficha Técnica Detalhada:</h3>
+              <h3 className={styles.boxTitle}>Características do Produto:</h3>
               <dl className={styles.specsList}>
                 {technicalSpecs.map((spec) => (
                   <div key={spec.label} className={styles.specRow}>
@@ -63,6 +63,19 @@ export default function KitAndSpecs() {
                   </div>
                 ))}
               </dl>
+
+              {/* Destaques e diferenciais do produto */}
+              <div className={styles.featuresListWrapper}>
+                <h4 className={styles.featuresSubtitle}>Diferenciais e Benefícios:</h4>
+                <ul className={styles.featuresBulletList}>
+                  {productFeatures.map((feat, idx) => (
+                    <li key={idx} className={styles.featureBulletItem}>
+                      <span className={styles.bulletDot} aria-hidden="true">•</span>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Botão de Compra Direto ao Checkout */}

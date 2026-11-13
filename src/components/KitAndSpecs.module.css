@@ -138,6 +138,44 @@
   text-align: right;
 }
 
+.featuresListWrapper {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(45, 33, 29, 0.15);
+}
+
+.featuresSubtitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin-bottom: 0.75rem;
+}
+
+.featuresBulletList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 0;
+  margin: 0;
+}
+
+.featureBulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-espresso);
+}
+
+.bulletDot {
+  color: #B54708;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
 .kitCtaWrapper {
   margin-top: 0.5rem;
   width: 100%;

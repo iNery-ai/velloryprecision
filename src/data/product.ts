@@ -282,25 +282,32 @@ export const howToUseSteps = [
 ];
 
 export const kitItems = [
-  { name: "1× Caneta Depiladora", desc: "Corpo anatômico em ABS e ponta hipoalergênica" },
+  { name: "1× Caneta Depiladora", desc: "Corpo em polipropileno resistente, luz LED na ponta e formato mini depilador portátil" },
   { name: "1× Tampa Protetora", desc: "Proteção higiênica contra poeira e impactos" },
-  { name: "1× Cabo de Carregamento USB", desc: "Compatível com qualquer carregador de celular ou computador" },
-  { name: "1× Escovinha de Limpeza Cerdas Macias", desc: "Para higienização rápida após o uso" },
+  { name: "1× Cabo de Carregamento USB", desc: "USB Bivolt para recarregar com facilidade em qualquer fonte USB" },
+  { name: "1× Escovinha de Limpeza Cerdas Macias", desc: "Para higienização rápida dos fios após o uso" },
   { name: "1× Manual de Instruções em Português", desc: "Guia ilustrado de uso e cuidados" },
 ];
 
 export const technicalSpecs = [
-  { label: "Produto", value: "Caneta Depiladora" },
-  { label: "Marca", value: "Vellory Precision" },
-  { label: "Alimentação", value: "Bateria de Lítio Recarregável (Bivolt 110V/220V)" },
-  { label: "Tempo de Carregamento", value: "Aprox. 2 horas (via cabo USB incluso)" },
-  { label: "Autonomia da Bateria", value: "Até 60 minutos de uso contínuo" },
-  { label: "Iluminação", value: "LED branco de alto brilho integrado na ponta" },
-  { label: "Material do Corpo", value: "Polímero ABS" },
-  { label: "Material da Ponta", value: "Aço cirúrgico hipoalergênico" },
-  { label: "Dimensões", value: "13,0 cm × 2,0 cm (formato caneta portátil)" },
-  { label: "Peso Líquido", value: "Apenas 32 gramas" },
-  { label: "Cores", value: "Cores sortidas conforme disponibilidade do lote" },
+  { label: "Material", value: "Polipropileno" },
+  { label: "Alimentação", value: "Cabo USB (Recarregável)" },
+  { label: "Iluminação", value: "LED na ponta para auxiliar no aparo" },
+  { label: "Tensão / Entrada", value: "USB - Bivolt" },
+  { label: "Potência", value: "2W" },
+  { label: "Tempo de Uso (Autonomia)", value: "45 minutos" },
+  { label: "Tempo de Carregamento", value: "8 horas" },
+  { label: "Cor", value: "Sortidas" },
+  { label: "Portabilidade", value: "Portátil (formato mini depilador)" },
+];
+
+export const productFeatures = [
+  "Feito a partir de material qualificado garantindo longa utilização.",
+  "Removedor de pelos faciais indesejados.",
+  "É hipoalérgico, indicado para todas as mulheres.",
+  "Suave o suficiente para usar todos os dias.",
+  "Desempenho superior de depilação, proporciona perfeita e longa suavidade.",
+  "Mini depilador é portátil, para levar sempre com você.",
 ];
 
 export interface ReviewPhoto {
@@ -468,7 +475,7 @@ export const faqList = [
   },
   {
     q: "Ela é recarregável ou precisa de pilhas?",
-    a: "É 100% recarregável via cabo USB (incluso no kit) e bivolt (110V/220V). Você pode carregar na tomada do celular, na porta USB do computador ou até no carro. Não requer compra de pilhas descartáveis.",
+    a: "É 100% recarregável via cabo USB (incluso no kit) e USB - Bivolt, com potência de 2W. Possui tempo de carregamento de 8 horas e tempo de uso de até 45 minutos. Você pode carregar na tomada do celular, na porta USB do computador ou em qualquer carregador padrão. Não requer compra de pilhas descartáveis.",
   },
   {
     q: "Quais são as formas de pagamento aceitas?",
@@ -491,8 +498,8 @@ export const faqList = [
     a: "Assim que o seu pedido for confirmado, o e-book ilustrado em PDF 'Guia Prático do Contorno Perfeito em Casa' será enviado diretamente para o seu e-mail de compra para você já começar a aprender as melhores técnicas de visagismo.",
   },
   {
-    q: "Quais são as especificações técnicas da caneta?",
-    a: "Bateria de Lítio recarregável USB Bivolt (110V/220V) com autonomia de até 60 minutos. Corpo em polímero ABS com ponta em aço cirúrgico hipoalergênico. LED branco de alto brilho integrado. Dimensões: 13,0 cm × 2,0 cm. Peso: apenas 32 gramas. Cores sortidas conforme disponibilidade do lote.",
+    q: "Quais são as especificações e características técnicas?",
+    a: "Material: Polipropileno resistente de longa utilização. Alimentação: Cabo USB (Recarregável), USB - Bivolt, potência de 2W. Autonomia de uso: 45 minutos. Tempo de carregamento: 8 horas. Iluminação: LED na ponta para auxiliar no aparo. É hipoalérgico e suave o suficiente para usar todos os dias. Formato mini depilador portátil. Cores: sortidas conforme disponibilidade do lote.",
   },
 ];
 
