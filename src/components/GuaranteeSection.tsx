@@ -1,7 +1,6 @@
 "use client";
 
-import { companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import BuyButton from "./BuyButton";
 import styles from "./GuaranteeSection.module.css";
 
 export default function GuaranteeSection() {
@@ -26,14 +25,10 @@ export default function GuaranteeSection() {
             </p>
 
             <div className={styles.ctaWrapper}>
-              <a
-                href={companyLinks.checkout}
-                onClick={() => trackInitiateCheckout()}
-                className={styles.guaranteeButton}
-                aria-label="Comprar agora com garantia de devolução em 7 dias"
-              >
-                Comprar agora
-              </a>
+              <BuyButton
+                fullWidth
+                ariaLabel="Compre agora com garantia de devolução em 7 dias"
+              />
             </div>
           </div>
         </div>

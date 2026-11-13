@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { benefitsList, media, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { benefitsList, media } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./BenefitsFeatures.module.css";
 
 export default function BenefitsFeatures() {
@@ -46,13 +46,7 @@ export default function BenefitsFeatures() {
 
         {/* Botão de Compra Direto ao Checkout */}
         <div className={styles.ctaWrapper}>
-          <a
-            href={companyLinks.checkout}
-            onClick={() => trackInitiateCheckout()}
-            className={styles.buyButton}
-          >
-            COMPRAR AGORA · R$ 89,90
-          </a>
+          <BuyButton ariaLabel="Compre agora a Caneta Depiladora" />
         </div>
       </div>
     </section>

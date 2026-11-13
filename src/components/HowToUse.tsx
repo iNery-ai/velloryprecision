@@ -1,7 +1,7 @@
 "use client";
 
-import { howToUseSteps, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { howToUseSteps } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./HowToUse.module.css";
 
 export default function HowToUse() {
@@ -36,13 +36,7 @@ export default function HowToUse() {
         </div>
 
         <div className={styles.ctaWrapper}>
-          <a
-            href={companyLinks.checkout}
-            onClick={() => trackInitiateCheckout()}
-            className={styles.howToUseButton}
-          >
-            COMPRAR AGORA · R$ 89,90
-          </a>
+          <BuyButton ariaLabel="Compre agora a Caneta Depiladora" />
         </div>
       </div>
     </section>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { product, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { product } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./StickyMobileBar.module.css";
 
 function formatBRL(value: number) {
@@ -51,15 +51,10 @@ export default function StickyMobileBar() {
         </div>
 
         {/* Botão de Compra com Máximo Destaque Visual */}
-        <a
-          href={companyLinks.checkout}
-          onClick={() => trackInitiateCheckout()}
-          className={styles.ctaButton}
-          aria-label="Comprar Caneta Depiladora com Frete Grátis"
-        >
-          <span className={styles.ctaMainText}>COMPRAR AGORA</span>
-          <span className={styles.ctaSubText}>Frete Grátis • 13% OFF</span>
-        </a>
+        <BuyButton
+          className={styles.stickyBuyButton}
+          ariaLabel="Compre agora a Caneta Depiladora com Frete Grátis"
+        />
       </div>
     </aside>
   );

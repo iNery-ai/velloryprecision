@@ -256,35 +256,7 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 0.25rem;
-}
-
-.buyButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  padding: 1.125rem 2rem;
-  min-height: 54px;
-  border-radius: var(--radius-md);
-  text-align: center;
-  font-size: 1.0625rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(45, 33, 29, 0.22);
-  transition: all var(--transition-fast);
-}
-
-.buyButton:hover {
-  background-color: var(--color-espresso-light);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(45, 33, 29, 0.3);
-}
-
-.buyButton:active {
-  transform: scale(0.98);
+  width: 100%;
 }
 
 /* Nota Discreta de Cores Sortidas */

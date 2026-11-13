@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { media, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { media } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -39,14 +39,7 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <a
-            href={companyLinks.checkout}
-            onClick={() => trackInitiateCheckout()}
-            className={styles.ctaButton}
-            aria-label="Comprar Caneta Depiladora Agora"
-          >
-            COMPRAR AGORA
-          </a>
+          <BuyButton compact ariaLabel="Compre agora a Caneta Depiladora" />
         </div>
       </div>
     </header>

@@ -1,0 +1,84 @@
+/* ================================================================== */
+/*  BOTÃO PADRONIZADO DE COMPRA (CANETA DEPILADORA)                   */
+/*  - Fundo: Laranja queimado #B54708                                 */
+/*  - Texto e Ícone: Branco #FFFFFF                                   */
+/*  - Espaçamento: 8px de gap entre ícone e texto                     */
+/*  - Borda: border-radius: 8px                                       */
+/*  - No celular: Altura mínima de 48px                               */
+/* ================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #B54708;
+  color: #FFFFFF;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  padding: 0.875rem 1.75rem;
+  min-height: 48px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(181, 71, 8, 0.28);
+  transition: background-color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.button:hover {
+  background-color: #93370D;
+  box-shadow: 0 6px 18px rgba(181, 71, 8, 0.38);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  flex-shrink: 0;
+  display: block;
+  stroke: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.text {
+  color: #FFFFFF;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+/* Ocupa toda a largura disponível (Cards de oferta e devolução) */
+.fullWidth {
+  width: 100%;
+  display: flex;
+}
+
+/* Versão compacta para cabeçalho */
+.compact {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+/* ================================================================== */
+/*  RESPONSIVIDADE MOBILE                                             */
+/* ================================================================== */
+@media (max-width: 640px) {
+  .button,
+  .compact {
+    min-height: 48px;
+  }
+
+  .compact {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+}

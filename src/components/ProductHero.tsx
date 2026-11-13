@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { galleryImages, product, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { galleryImages, product } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./ProductHero.module.css";
 
 export default function ProductHero() {
@@ -180,15 +180,11 @@ export default function ProductHero() {
 
           {/* Botão de Compra CTA Principal */}
           <div className={styles.ctaWrapper}>
-            <a
+            <BuyButton
               id="cta-hero"
-              href={companyLinks.checkout}
-              onClick={() => trackInitiateCheckout()}
-              className={styles.buyButton}
-              aria-label="Comprar Caneta Depiladora Agora"
-            >
-              COMPRAR AGORA
-            </a>
+              fullWidth
+              ariaLabel="Compre agora a Caneta Depiladora"
+            />
           </div>
 
           {/* Informação Discreta de Cores Sortidas */}

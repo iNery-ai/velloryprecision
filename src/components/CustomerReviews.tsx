@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { customerReviews, carouselPhotos, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { customerReviews, carouselPhotos } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./CustomerReviews.module.css";
 
 export default function CustomerReviews() {
@@ -88,14 +88,7 @@ export default function CustomerReviews() {
 
         {/* CTA Sóbrio para o Checkout */}
         <div className={styles.ctaWrapper}>
-          <a
-            href={companyLinks.checkout}
-            onClick={() => trackInitiateCheckout()}
-            className={styles.reviewButton}
-            aria-label="Comprar Caneta Depiladora Agora"
-          >
-            COMPRAR AGORA · R$ 89,90
-          </a>
+          <BuyButton ariaLabel="Compre agora a Caneta Depiladora" />
         </div>
       </div>
     </section>

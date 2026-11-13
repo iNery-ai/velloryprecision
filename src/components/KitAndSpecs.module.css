@@ -140,33 +140,7 @@
 
 .kitCtaWrapper {
   margin-top: 0.5rem;
-}
-
-.kitBuyButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  font-size: 0.9375rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 1rem 1.75rem;
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(45, 33, 29, 0.2);
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.kitBuyButton:hover {
-  background-color: var(--color-espresso-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(45, 33, 29, 0.3);
-}
-
-.kitBuyButton:active {
-  transform: scale(0.98);
+  width: 100%;
 }
 
 /* ================================================================== */

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { media, kitItems, technicalSpecs, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { media, kitItems, technicalSpecs } from "@/data/product";
+import BuyButton from "./BuyButton";
 import styles from "./KitAndSpecs.module.css";
 
 export default function KitAndSpecs() {
@@ -67,13 +67,7 @@ export default function KitAndSpecs() {
 
             {/* Botão de Compra Direto ao Checkout */}
             <div className={styles.kitCtaWrapper}>
-              <a
-                href={companyLinks.checkout}
-                onClick={() => trackInitiateCheckout()}
-                className={styles.kitBuyButton}
-              >
-                COMPRAR AGORA · R$ 89,90
-              </a>
+              <BuyButton fullWidth ariaLabel="Compre agora o Kit Caneta Depiladora" />
             </div>
           </div>
         </div>
