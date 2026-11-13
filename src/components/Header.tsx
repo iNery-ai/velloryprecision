@@ -24,8 +24,8 @@ export default function Header() {
           <a href="#como-funciona" className={styles.navLink}>
             Como funciona
           </a>
-          <a href="#beneficios" className={styles.navLink}>
-            Diferenciais
+          <a href="#antes-e-depois" className={styles.navLink}>
+            Antes e depois
           </a>
           <a href="#kit" className={styles.navLink}>
             O que vem no kit

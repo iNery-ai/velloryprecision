@@ -59,6 +59,18 @@ export const media = {
     poster: "/images/olhos-luna.png",
     alt: "Demonstração prática do uso da caneta depiladora facial no rosto",
   },
+  comparacaoSobrancelhas: {
+    src: "/images/comparacao-sobrancelhas-antes-e-depois.png",
+    alt: "Comparação de sobrancelhas antes e depois com a Caneta Depiladora",
+    width: 1024,
+    height: 1024,
+  },
+  comparacaoBuco: {
+    src: "/images/comparacao-buco-antes-e-depois.png",
+    alt: "Comparação do buço antes e depois com a Caneta Depiladora",
+    width: 1024,
+    height: 1024,
+  },
 } as const;
 
 export const galleryImages: ProductImage[] = [

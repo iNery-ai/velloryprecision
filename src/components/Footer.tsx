@@ -38,7 +38,7 @@ export default function Footer() {
                 </a>
               </li>
               <li><a href="#como-funciona">Como Usar</a></li>
-              <li><a href="#beneficios">Tecnologia & Benefícios</a></li>
+              <li><a href="#antes-e-depois">Antes e Depois</a></li>
               <li><a href="#kit">O que vem no kit</a></li>
               <li><a href="#avaliacoes">Depoimentos Reais</a></li>
               <li><a href="#faq">Perguntas Frequentes</a></li>

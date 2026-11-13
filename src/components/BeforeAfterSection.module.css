@@ -1,0 +1,96 @@
+/* ================================================================== */
+/*  SEÇÃO ANTES E DEPOIS DE UM RETOQUE                                */
+/*  - Fundo Marfim (#FAF6F0)                                          */
+/*  - Títulos em Marrom-Espresso (#2D211D)                            */
+/*  - Imagens inteiras em formato quadrado (1024x1024) sem cortes      */
+/*  - Desktop: 2 colunas lado a lado                                  */
+/*  - Mobile: Empilhadas, com Sobrancelha primeiro                     */
+/* ================================================================== */
+
+.section {
+  padding: 4.5rem 0;
+  background-color: var(--color-ivory);
+}
+
+.comparisonsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.comparisonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  line-height: 1.25;
+  margin: 0;
+  text-align: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-ivory-light);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparisonImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.ctaWrapper {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================================================================== */
+/*  RESPONSIVIDADE (TABLET & MOBILE 360px / 390px)                    */
+/* ================================================================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .comparisonsGrid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    max-width: 480px;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaWrapper {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .comparisonsGrid {
+    gap: 1.75rem;
+  }
+
+  .cardTitle {
+    font-size: 1.125rem;
+  }
+}

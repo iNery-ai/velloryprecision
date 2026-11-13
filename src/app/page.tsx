@@ -1,7 +1,7 @@
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Header from "@/components/Header";
 import ProductHero from "@/components/ProductHero";
-import BenefitsFeatures from "@/components/BenefitsFeatures";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
 import HowToUse from "@/components/HowToUse";
 import KitAndSpecs from "@/components/KitAndSpecs";
 import CustomerReviews from "@/components/CustomerReviews";
@@ -17,7 +17,7 @@ export default function HomePage() {
       <Header />
       <main>
         <ProductHero />
-        <BenefitsFeatures />
+        <BeforeAfterSection />
         <HowToUse />
         <KitAndSpecs />
         <CustomerReviews />
