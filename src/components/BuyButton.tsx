@@ -1,7 +1,6 @@
 "use client";
 
 import { companyLinks } from "@/data/product";
-import { trackInitiateCheckout, trackPurchase } from "@/lib/pixel";
 import styles from "./BuyButton.module.css";
 
 export function ShoppingBasketIcon({
@@ -49,16 +48,10 @@ export default function BuyButton({
   compact = false,
   ariaLabel = "Compre agora",
 }: BuyButtonProps) {
-  const handleClick = () => {
-    trackInitiateCheckout();
-    trackPurchase(0.00, "USD");
-  };
-
   return (
     <a
       id={id}
       href={companyLinks.checkout}
-      onClick={handleClick}
       className={`${styles.button} ${fullWidth ? styles.fullWidth : ""} ${compact ? styles.compact : ""} ${className}`.trim()}
       aria-label={ariaLabel}
     >
@@ -67,4 +60,3 @@ export default function BuyButton({
     </a>
   );
 }
-

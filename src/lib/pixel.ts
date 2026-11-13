@@ -1,6 +1,6 @@
 /**
  * Utilitário para eventos do Meta Pixel (Facebook Ads)
- * Pixel ID: 1160826213302373
+ * O ID pode ser configurado via variável de ambiente NEXT_PUBLIC_FACEBOOK_PIXEL_ID na Vercel.
  */
 
 declare global {
@@ -9,7 +9,8 @@ declare global {
   }
 }
 
-export const META_PIXEL_ID = "1160826213302373";
+export const META_PIXEL_ID =
+  process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || "1160826213302373";
 
 export function trackEvent(name: string, params?: Record<string, any>) {
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
@@ -21,13 +22,20 @@ export function trackEvent(name: string, params?: Record<string, any>) {
   }
 }
 
-export function trackPurchase(value = 0.00, currency = "USD") {
-  trackEvent("Purchase", {
-    value,
-    currency,
-  });
+export function trackCustomEvent(name: string, params?: Record<string, any>) {
+  if (typeof window !== "undefined" && typeof window.fbq === "function") {
+    if (params) {
+      window.fbq("trackCustom", name, params);
+    } else {
+      window.fbq("trackCustom", name);
+    }
+  }
 }
 
+/**
+ * InitiateCheckout para uso opcional se o checkout externo não tiver pixel integrado.
+ * Não chama Purchase.
+ */
 export function trackInitiateCheckout(value = 89.9, currency = "BRL") {
   trackEvent("InitiateCheckout", {
     value,
@@ -36,6 +44,4 @@ export function trackInitiateCheckout(value = 89.9, currency = "BRL") {
     content_category: "Depilação Facial",
     num_items: 1,
   });
-  trackPurchase(0.00, "USD");
 }
-

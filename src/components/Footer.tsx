@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import { media, companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -31,7 +28,6 @@ export default function Footer() {
               <li>
                 <a
                   href={companyLinks.checkout}
-                  onClick={() => trackInitiateCheckout()}
                   className={styles.buyLinkHighlight}
                 >
                   ⚡ Comprar Caneta Depiladora (Checkout)

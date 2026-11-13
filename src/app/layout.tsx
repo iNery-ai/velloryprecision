@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans } from "next/font/google";
+import { META_PIXEL_ID } from "@/lib/pixel";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -71,7 +72,7 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1160826213302373');
+              fbq('init', '${META_PIXEL_ID}');
               fbq('track', 'PageView');
             `,
           }}
@@ -81,7 +82,7 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1160826213302373&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
             alt=""
           />
         </noscript>

@@ -1,7 +1,4 @@
-"use client";
-
 import { companyLinks } from "@/data/product";
-import { trackInitiateCheckout } from "@/lib/pixel";
 import styles from "./AnnouncementBar.module.css";
 
 export default function AnnouncementBar() {
@@ -9,7 +6,6 @@ export default function AnnouncementBar() {
     <aside className={styles.bar}>
       <a
         href={companyLinks.checkout}
-        onClick={() => trackInitiateCheckout()}
         className={styles.container}
         aria-label="BLACK FRIDAY · R$ 89,90 no Pix + frete grátis"
       >
