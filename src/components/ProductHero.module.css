@@ -213,7 +213,7 @@
 .pixHighlight {
   font-size: 1rem;
   font-weight: 800;
-  color: var(--color-green-success);
+  color: #1B5E20;
 }
 
 .cardInstallmentRow {
@@ -262,9 +262,8 @@
 /* Nota Discreta de Cores Sortidas */
 .discreetColorNotice {
   font-size: 0.75rem;
-  color: var(--color-espresso-muted);
+  color: #5C504A;
   line-height: 1.4;
-  opacity: 0.8;
   font-style: italic;
 }
 

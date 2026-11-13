@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
         href={companyLinks.checkout}
         onClick={() => trackInitiateCheckout()}
         className={styles.container}
-        aria-label="Aproveitar Black Friday por R$ 89,90 no Pix com frete grátis"
+        aria-label="BLACK FRIDAY · R$ 89,90 no Pix + frete grátis"
       >
         <span className={styles.campaignTag}>BLACK FRIDAY</span>
         <span className={styles.separator}>·</span>

@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           <div className={styles.linksCol}>
-            <h4 className={styles.colTitle}>Navegação Rápida</h4>
+            <h3 className={styles.colTitle}>Navegação Rápida</h3>
             <ul className={styles.linkList}>
               <li>
                 <a
@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
 
           <div className={styles.linksCol}>
-            <h4 className={styles.colTitle}>Atendimento ao Cliente</h4>
+            <h3 className={styles.colTitle}>Atendimento ao Cliente</h3>
             <ul className={styles.linkList}>
               <li>
                 <a href={`mailto:${companyLinks.email}`}>
