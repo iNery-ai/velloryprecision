@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans } from "next/font/google";
 import { META_PIXEL_ID } from "@/lib/pixel";
+import { companyLinks } from "@/data/product";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -106,6 +107,40 @@ export default function RootLayout({
                   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
               })(window, document, "clarity", "script", "zd9m709lsc");
+            `,
+          }}
+        />
+        {/* Back Redirect Script */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var link = '${process.env.NEXT_PUBLIC_BACK_REDIRECT_URL || companyLinks.checkout}';
+
+                function setBackRedirect(url) {
+                  var urlBackRedirect = url;
+                  var search = (document.location.search || '').replace(/^\\?/, '').trim();
+                  if (search) {
+                    urlBackRedirect = urlBackRedirect.trim() + (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') + search;
+                  } else {
+                    urlBackRedirect = urlBackRedirect.trim();
+                  }
+
+                  history.pushState({}, '', location.href);
+                  history.pushState({}, '', location.href);
+                  history.pushState({}, '', location.href);
+
+                  window.addEventListener('popstate', function() {
+                    console.log('onpopstate', urlBackRedirect);
+                    setTimeout(function() {
+                      location.href = urlBackRedirect;
+                    }, 1);
+                  });
+                }
+
+                setBackRedirect(link);
+              })();
             `,
           }}
         />
